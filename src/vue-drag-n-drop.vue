@@ -1,13 +1,10 @@
 <template>
   <div class="vue-drag-n-drop">
-    <h2 class="dd-title">
-      {{originalTitle}}
-    </h2>
     <div class="dd-first-group"> 
         <Container 
           @drop="onDrop" 
           group-name="col"
-          :orientation="'horizontal'"
+          :orientation="'vertical'"
           :get-child-payload="getOriginalCardPayload()"
           drag-class="dd-card-ghost"
           drop-class="dd-card-ghost-drop">
@@ -23,9 +20,6 @@
         </Container>
     </div>
     <hr>
-    <h2 class="dd-title">
-      {{dropzonesTitle}}
-    </h2>
     <div class="dd-result-group">
       <div 
         v-for="(item,ind) in dropGroups"
@@ -233,7 +227,9 @@ export default {
 
 .dd-first-group {
   overflow-y: auto;
-  max-height: 200px;
+  float: right;
+  margin: 20px;
+  max-height: 100%;
 }
 
 .dd-first-group > .smooth-dnd-container {
