@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+  <header>CSB Course Manager</header>
+  <h2>Course management and planning allows to make the most out of your available credits at Lehigh!</h2>
+  <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
     
     <drag-drop
       :dropzones="dropGroups"
@@ -39,49 +42,41 @@ export default {
     return{
       stories: [
         {
-          title: 'Strategy 101',
-          description: 'Create a draft of business plan',
-          time: '3 days',
-          done: false
+          title: 'Bus 001',
+          description: 'Intro to Business School',
         },
         {
-          title: 'Strategy 102',
-          description: 'Finalize the plan',
-          time: '4 days',
-          done: false
+          title: 'Bus 003',
+          description: 'Business Communications Class',
         },
         {
-          title: 'Tech diagram',
-          description: 'Draw the tech data',
-          time: '4 days',
-          done: false
+          title: 'ECO 001',
+          description: 'Intro Econ Class',
         },
         {
-          title: 'Place Holder',
-          description: 'Data Science Team',
-          time: '5 days',
-          done: false
+          title: 'CSE 007',
+          description: 'Intro Computer Science Class',
         }
       ],
 
       dropGroups: [
         {
-          name: 'Business Team',
+          name: 'Semester 1',
           children: []
         },
         {
-          name: 'Tech Dept',
+          name: 'Semester 2',
           children: []
         },
         {
-          name: 'Marketing Dept',
+          name: 'Semester 3',
           children: []
         },
         {
-          name: 'Accounting Dept',
+          name: 'Semester 4',
           children: []
         }
-      ]
+      ],
     }
   },
 
@@ -117,6 +112,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+}
+header {
+  font-size: 30px;
+}
+h2 {
+  font-size: 16px;
 }
 </style>

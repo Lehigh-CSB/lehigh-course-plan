@@ -4,9 +4,6 @@
     <p>
       {{data.description}}
     </p>
-    <button v-if="!data.done" class="cc-btn" @click="markDone()">
-      Mark Done
-    </button>
   </div>
 </template>
 
