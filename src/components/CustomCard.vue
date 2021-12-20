@@ -4,8 +4,14 @@
     <p>
       {{data.description}}
     </p>
-    <button v-if="!data.done" class="cc-btn" @click="markDone()">
-      Mark Done
+    <p>
+      Credits: {{data.credits}}
+    </p>
+    <button v-if="!data.completed" class="cc-btn-not-completed" @click="markCompleted()">
+      Not Completed
+    </button>
+    <button v-else class="cc-btn-completed" @click="markCompleted()">
+      Completed
     </button>
   </div>
 </template>
@@ -15,8 +21,8 @@ export default {
   name: 'CustomCard',
   props: ['data'],
   methods: {
-    markDone() {
-      this.$emit('done', this.data);
+    markCompleted() {
+      this.$emit('completed', this.data);
     }
   }
 }
@@ -38,10 +44,18 @@ export default {
   margin: 0px;
 }
 
-.cc-btn {
+.cc-btn-completed {
   background-color: #5cdb95;
   border: none;
   color: white;
   border-radius: 5px;
+}
+
+.cc-btn-not-completed {
+  background-color: #5cdb95;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  opacity: 0.5;
 }
 </style>

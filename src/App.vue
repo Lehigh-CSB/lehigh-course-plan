@@ -17,7 +17,7 @@
       <template #dd-card="{ cardData }">
         <custom-card
           :data="cardData"
-          @done="doneMarked"
+          @completed="completedMarked"
         />
       </template>
     </drag-drop>
@@ -39,46 +39,46 @@ export default {
     return{
       stories: [
         {
-          title: 'Strategy 101',
-          description: 'Create a draft of business plan',
-          time: '3 days',
-          done: false
+          title: 'BUS 001',
+          description: 'Foundations of Business',
+          credits: '1',
+          completed: false
         },
         {
-          title: 'Strategy 102',
-          description: 'Finalize the plan',
-          time: '4 days',
-          done: false
+          title: 'ECO 001',
+          description: 'Principles of Economics',
+          credits: '4',
+          completed: false
         },
         {
-          title: 'Tech diagram',
-          description: 'Draw the tech data',
-          time: '4 days',
-          done: false
+          title: 'CSE 007',
+          description: 'Introduction to Programming',
+          credits: '4',
+          completed: false
         },
         {
-          title: 'Place Holder',
-          description: 'Data Science Team',
-          time: '5 days',
-          done: false
+          title: 'MATH 021',
+          description: 'Calculus I',
+          credits: '4',
+          completed: false
         }
       ],
 
       dropGroups: [
         {
-          name: 'Business Team',
+          name: 'Semester 1',
           children: []
         },
         {
-          name: 'Tech Dept',
+          name: 'Semester 2',
           children: []
         },
         {
-          name: 'Marketing Dept',
+          name: 'Semester 3',
           children: []
         },
         {
-          name: 'Accounting Dept',
+          name: 'Semester 4',
           children: []
         }
       ]
@@ -90,8 +90,13 @@ export default {
       console.log("Received:", received)
     },
 
-    doneMarked(data) {
-      data.done = true;
+    completedMarked(data) {
+      if(data.completed == true){
+        data.completed = false;
+      }
+      else{
+        data.completed = true;
+      }
       alert(data.title);
     },
 
