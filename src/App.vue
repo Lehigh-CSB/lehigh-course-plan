@@ -44,37 +44,46 @@ export default {
         {
           title: 'Bus 001',
           description: 'Intro to Business School',
+          credits: 1,
         },
         {
           title: 'Bus 003',
           description: 'Business Communications Class',
+          credits: 1.5,
         },
         {
           title: 'ECO 001',
           description: 'Intro Econ Class',
+          credits: 4,
         },
         {
           title: 'CSE 007',
           description: 'Intro Computer Science Class',
+          credits: 4,
         }
       ],
 
       dropGroups: [
         {
           name: 'Semester 1',
-          children: []
+          children: [],
+          //totalCredits: this.children.reduce((acc, item) => acc + item.credits, 0),
+          totalCredits: 0,
         },
         {
           name: 'Semester 2',
-          children: []
+          children: [],
+          totalCredits: 0,
         },
         {
           name: 'Semester 3',
-          children: []
+          children: [],
+          totalCredits: 0,
         },
         {
           name: 'Semester 4',
-          children: []
+          children: [],
+          totalCredits: 0,
         }
       ],
     }

@@ -1,9 +1,11 @@
 <template>
   <div class="cc-card">
-    <h3>{{data.title}}</h3>
-    <p>
-      {{data.description}}
-    </p>
+    <h3 style="text-align:left;">
+      {{data.title}}
+    <span style="float:right;">
+        {{data.credits}}
+    </span>
+    </h3>
   </div>
 </template>
 
