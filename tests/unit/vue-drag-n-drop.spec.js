@@ -68,7 +68,7 @@ describe('vue-drag-n-drop.vue', () => {
 
   it('gets the card payload when the card payload is requested', () => {
     wrapper.setData({
-      dropGroups: [
+      semesters: [
         {
           name: 'Zone1',
           children: [

@@ -1,5 +1,8 @@
 <template>
   <div class="vue-drag-n-drop">
+    <h2 class="dd-title">
+      {{originalTitle}}
+    </h2>
     <div class="dd-first-group"> 
         <Container 
           @drop="onDrop" 
@@ -8,21 +11,74 @@
           :get-child-payload="getOriginalCardPayload()"
           drag-class="dd-card-ghost"
           drop-class="dd-card-ghost-drop">
+          <!-- <button
+            v-for="tab in tabs"
+            v-bind:key="tab"
+            v-bind:class="['tab-button', {active: currentTab === tab}]"
+            v-on:click="currentTab = tab"
+            >
+            {{tab}}
+          </button> 
+
           <Draggable v-for="(item, iind) in items" :key="iind">
+          <template v-if="item.designation===currentTab">
             <slot name="dd-card" v-bind:cardData="item">
               <div class="card">
                 <p>
-                {{item}}
+                  {{item}}
                 </p>
               </div>
             </slot>
+          </template>
+          </Draggable> -->
+          <Draggable v-for="(item, iind) in items" :key="iind">
+            <template v-if="item.designation=='CS'">
+              <h3 v-show="availableCS">CS Courses</h3>
+              <slot name="dd-card" v-bind:cardData="item">
+                <div class="card">
+                  <p>
+                    {{item}}
+                  </p>
+                </div>
+              </slot>
+            </template>
+            <template v-if="item.designation=='BUS'" v-bind:availableBUS="false">
+              <h3 v-show="availableBUS">BUS Courses</h3>
+              <slot name="dd-card" v-bind:cardData="item">
+                <div class="card">
+                  <p>
+                    {{item}}
+                  </p>
+                </div>
+              </slot>
+            </template>
+            <template v-if="item.designation=='MATH'">
+              <h3 v-show="availableMATH">MATH Courses</h3>
+              <slot name="dd-card" v-bind:cardData="item">
+                <div class="card">
+                  <p>
+                    {{item}}
+                  </p>
+                </div>
+              </slot>
+            </template>
+            <template v-if="item.designation=='NS'">
+              <h3 v-show="availableNS">NS Courses</h3>
+              <slot name="dd-card" v-bind:cardData="item">
+                <div class="card">
+                  <p>
+                    {{item}}
+                  </p>
+                </div>
+              </slot>
+            </template>
           </Draggable>
         </Container>
     </div>
     <hr>
     <div class="dd-result-group">
       <div 
-        v-for="(item,ind) in dropGroups"
+        v-for="(item,ind) in semesters"
         v-bind:key="ind"
         class="dd-drop-container">
         {{item.name}}
@@ -63,27 +119,40 @@
 import { Container, Draggable } from "vue-smooth-dnd";
 import _ from 'lodash';
 import RequiredProps from './drag-n-drop-props.js';
+import Tab from './components/Tab.vue';
 
 export default {
   name: "VueDragNDrop",
-  components: { Container, Draggable },
+  components: { Container, Draggable, Tab},
   props: RequiredProps,
 
   data: function () {
     return {
       items:[],
-      dropGroups: [],
+      semesters: [],
+      availableCS: true,
+      availableBUS: true,
+      availableMATH: true,
+      availableNS: true,
+      currentTab: 'CS',
+      tabs: ['CS', 'BUS', 'MATH', 'NS'],
+    }
+  },
+
+  computed: {
+    currentTabComponent() {
+      return 'tab-' + this.currentTab.toLowerCase();
     }
   },
 
   created() {
     if (this.inPlace) {
       this.items = this.originalData;
-      this.dropGroups = this.dropzones;
+      this.semesters = this.dropzones;
     }
     else {
       this.items = _.cloneDeep(this.originalData);
-      this.dropGroups = _.cloneDeep(this.dropzones);
+      this.semesters = _.cloneDeep(this.dropzones);
     }
   },
 
@@ -108,12 +177,12 @@ export default {
       if (dropResult.removedIndex !== null || dropResult.addedIndex !== null) {
 
         if(dropResult.removedIndex !== null){
-          let found = this.dropGroups.filter(p => p.name === columnId)[0];
+          let found = this.semesters.filter(p => p.name === columnId)[0];
           found.children.splice(dropResult.removedIndex, 1);
         }
 
         if (dropResult.addedIndex !== null){
-          let found = this.dropGroups.filter(p => p.name === columnId)[0];
+          let found = this.semesters.filter(p => p.name === columnId)[0];
           found.children.splice(dropResult.addedIndex, 0, dropResult.payload);
         }
       }
@@ -128,7 +197,7 @@ export default {
     getCardPayload(id){
       let that = this;
       return function(index) {
-        let found = that.dropGroups.filter(p => p.name === id)[0].children[
+        let found = that.semesters.filter(p => p.name === id)[0].children[
           index
         ];
 
@@ -182,7 +251,7 @@ export default {
        * @type {Object} 
       */
       this.$emit('save', {
-        dropzones: this.dropGroups,
+        dropzones: this.semesters,
         originalBucket: this.items
       });
     },
@@ -259,6 +328,23 @@ export default {
 .dd-cancel {
   border: none;
   cursor: pointer;
+}
+
+.tab-button {
+  padding: 6px 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #f0f0f0;
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.tab-button:hover {
+  background: #e0e0e0;
+}
+.tab-button.active {
+  background: #e0e0e0;
 }
 
 </style>

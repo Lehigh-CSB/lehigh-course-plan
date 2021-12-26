@@ -2,10 +2,10 @@
   <div id="app">
     
     <drag-drop
-      :dropzones="dropGroups"
+      :dropzones="semesters"
       :dropzonesTitle="'XYZ Company Teams'"
-      :originalData="stories"
-      :originalTitle="'Tasks to be distributed'"
+      :originalData="courses"
+      :originalTitle="'LU Course Plan'"
       :inPlace="true"
       :enableSave="true"
       :enableCancel="true"
@@ -37,34 +37,45 @@ export default {
   },
   data() {
     return{
-      stories: [
+      courses: [
         {
           title: 'BUS 001',
           description: 'Foundations of Business',
           credits: '1',
+          designation: 'BUS',
           completed: false
         },
         {
           title: 'ECO 001',
           description: 'Principles of Economics',
           credits: '4',
+          designation: 'BUS',
           completed: false
         },
         {
           title: 'CSE 007',
           description: 'Introduction to Programming',
           credits: '4',
+          designation: 'CS',
           completed: false
         },
         {
           title: 'MATH 021',
           description: 'Calculus I',
           credits: '4',
+          designation: 'MATH',
           completed: false
-        }
+        },
+        {
+          title: 'PHY 011',
+          description: 'Introduction to Physics I',
+          credits: '4',
+          designation: 'NS',
+          completed: false,
+        },
       ],
 
-      dropGroups: [
+      semesters: [
         {
           name: 'Semester 1',
           children: []
