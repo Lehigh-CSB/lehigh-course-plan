@@ -3,7 +3,15 @@
     <h2 class="dd-title">
       {{originalTitle}}
     </h2>
-    <div class="dd-first-group"> 
+    <div class="dd-first-group">
+        <button
+          v-for="tab in tabs"
+          v-bind:key="tab"
+          v-bind:class="['tab-button', {active: currentTab === tab}]"
+          v-on:click="currentTab = tab"
+          >
+          {{tab}}
+        </button> 
         <Container 
           @drop="onDrop" 
           group-name="col"
@@ -11,59 +19,9 @@
           :get-child-payload="getOriginalCardPayload()"
           drag-class="dd-card-ghost"
           drop-class="dd-card-ghost-drop">
-          <!-- <button
-            v-for="tab in tabs"
-            v-bind:key="tab"
-            v-bind:class="['tab-button', {active: currentTab === tab}]"
-            v-on:click="currentTab = tab"
-            >
-            {{tab}}
-          </button> 
 
           <Draggable v-for="(item, iind) in items" :key="iind">
-          <template v-if="item.designation===currentTab">
-            <slot name="dd-card" v-bind:cardData="item">
-              <div class="card">
-                <p>
-                  {{item}}
-                </p>
-              </div>
-            </slot>
-          </template>
-          </Draggable> -->
-          <Draggable v-for="(item, iind) in items" :key="iind">
-            <template v-if="item.designation=='CS'">
-              <h3 v-show="availableCS">CS Courses</h3>
-              <slot name="dd-card" v-bind:cardData="item">
-                <div class="card">
-                  <p>
-                    {{item}}
-                  </p>
-                </div>
-              </slot>
-            </template>
-            <template v-if="item.designation=='BUS'" v-bind:availableBUS="false">
-              <h3 v-show="availableBUS">BUS Courses</h3>
-              <slot name="dd-card" v-bind:cardData="item">
-                <div class="card">
-                  <p>
-                    {{item}}
-                  </p>
-                </div>
-              </slot>
-            </template>
-            <template v-if="item.designation=='MATH'">
-              <h3 v-show="availableMATH">MATH Courses</h3>
-              <slot name="dd-card" v-bind:cardData="item">
-                <div class="card">
-                  <p>
-                    {{item}}
-                  </p>
-                </div>
-              </slot>
-            </template>
-            <template v-if="item.designation=='NS'">
-              <h3 v-show="availableNS">NS Courses</h3>
+            <template v-if="item.designation===currentTab">
               <slot name="dd-card" v-bind:cardData="item">
                 <div class="card">
                   <p>
@@ -174,16 +132,21 @@ export default {
      * @param {Object} dropResult Holds the drop result.
     */
     onCardDrop(columnId, dropResult) {
-      if (dropResult.removedIndex !== null || dropResult.addedIndex !== null) {
+      let removedIndex = dropResult.removedIndex;
+      let addedIndex = dropResult.addedIndex;
+      // console.log(removedIndex);
+      // console.log(this.originalData);
+      // console.log(dropResult.payload);
+      if (removedIndex !== null || addedIndex !== null) {
 
-        if(dropResult.removedIndex !== null){
+        if(removedIndex !== null){
           let found = this.semesters.filter(p => p.name === columnId)[0];
-          found.children.splice(dropResult.removedIndex, 1);
+          found.children.splice(removedIndex, 1);
         }
 
-        if (dropResult.addedIndex !== null){
+        if (addedIndex !== null){
           let found = this.semesters.filter(p => p.name === columnId)[0];
-          found.children.splice(dropResult.addedIndex, 0, dropResult.payload);
+          found.children.splice(addedIndex, 0, dropResult.payload);
         }
       }
 
@@ -224,7 +187,9 @@ export default {
      * @public
     */
     applyDrag(arr, dragResult) {
-      const { removedIndex, addedIndex, payload } = dragResult
+      let { removedIndex, addedIndex, payload } = dragResult
+      // console.log(arr.length)
+      removedIndex = removedIndex % arr.length
       if (removedIndex === null && addedIndex === null) return arr
 
       const result = [...arr]
