@@ -43,7 +43,7 @@
             </slot>
           </Draggable>
         </Container>
-        <h3 style="float:right;">{{item.totalCredits}}</h3>
+        <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
       </div>
     </div>
 
