@@ -67,7 +67,6 @@ export default {
         {
           name: 'Semester 1',
           children: [],
-          //totalCredits: this.children.reduce((acc, item) => acc + item.credits, 0),
           totalCredits: 0,
         },
         {
@@ -89,7 +88,17 @@ export default {
     }
   },
 
+  //These are methods for the drag and drop group
   methods:{
+
+    getCredits(dropGroups){
+      dropGroups.forEach(Element => {
+        Element.totalCredits = 0;
+        Element.children.forEach(Element1 => {
+          Element.totalCredits = Element1.credits + Element.totalCredits;
+        })
+      })
+    },
     save(received){
       console.log("Received:", received)
     },
@@ -105,6 +114,7 @@ export default {
 
     destinationBucketDropEvent(columnName, result) {
       console.log("Destination: ", columnName, result)
+      this.getCredits(this.dropGroups);
     },
 
     cancel() {
