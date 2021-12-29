@@ -100,7 +100,8 @@ export default {
       })
     },
     save(received){
-      console.log("Received:", received)
+      console.log("Received:", received);
+      console.log(JSON.stringify(this.dropGroups));
     },
 
     doneMarked(data) {
