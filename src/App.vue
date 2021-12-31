@@ -43,28 +43,32 @@ export default {
           description: 'Foundations of Business',
           credits: '1',
           designation: 'BUS',
-          completed: false
+          completed: false,
+          used: false,
         },
         {
           title: 'ECO 001',
           description: 'Principles of Economics',
           credits: '4',
           designation: 'BUS',
-          completed: false
+          completed: false,
+          used: false,
         },
         {
           title: 'CSE 007',
           description: 'Introduction to Programming',
           credits: '4',
           designation: 'CS',
-          completed: false
+          completed: false,
+          used: false,
         },
         {
           title: 'MATH 021',
           description: 'Calculus I',
           credits: '4',
           designation: 'MATH',
-          completed: false
+          completed: false,
+          used: false,
         },
         {
           title: 'PHY 011',
@@ -72,6 +76,7 @@ export default {
           credits: '4',
           designation: 'NS',
           completed: false,
+          used: false,
         },
       ],
 

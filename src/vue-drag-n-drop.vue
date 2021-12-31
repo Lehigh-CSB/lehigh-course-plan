@@ -23,7 +23,7 @@
           <Draggable v-for="(item, iind) in items" :key="iind">
             <template v-if="item.designation===currentTab">
               <slot name="dd-card" v-bind:cardData="item">
-                <div class="card">
+                <div v-if="!item.used" class="card">
                   <p>
                     {{item}}
                   </p>
@@ -188,12 +188,15 @@ export default {
     */
     applyDrag(arr, dragResult) {
       let { removedIndex, addedIndex, payload } = dragResult
-      // console.log(arr.length)
-      removedIndex = removedIndex % arr.length
+      removedIndex = removedIndex % arr.length;
+      addedIndex = addedIndex % arr.length;
+      // console.log(arr[removedIndex]);
       if (removedIndex === null && addedIndex === null) return arr
 
       const result = [...arr]
       let itemToAdd = payload
+
+      // console.log(arr[removedIndex].used);
 
       if (removedIndex !== null) {
         itemToAdd = result.splice(removedIndex, 1)[0]
@@ -202,6 +205,10 @@ export default {
       if (addedIndex !== null) {
         result.splice(addedIndex, 0, itemToAdd)
       }
+
+      arr[removedIndex].used = true;
+      console.log(result);
+      // console.log(arr[removedIndex].used);
 
       return result;
     },
@@ -252,6 +259,15 @@ export default {
   background-color: white;
   box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
   padding: 10px;
+}
+
+.used-card{
+  margin: 5px;
+  width: 200px;
+  background-color: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+  padding: 10px;
+  opacity: 0.5;
 }
 
 .dd-result-group {
