@@ -78,6 +78,14 @@ export default {
           completed: false,
           used: false,
         },
+        {
+          title: 'CSE 017',
+          description: 'Programming and Data Structures',
+          credits: '3',
+          designation: 'CS',
+          completed: false,
+          used: false,
+        },
       ],
 
       semesters: [

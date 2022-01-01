@@ -88,10 +88,6 @@ export default {
     return {
       items:[],
       semesters: [],
-      availableCS: true,
-      availableBUS: true,
-      availableMATH: true,
-      availableNS: true,
       currentTab: 'CS',
       tabs: ['CS', 'BUS', 'MATH', 'NS'],
     }
@@ -206,8 +202,8 @@ export default {
         result.splice(addedIndex, 0, itemToAdd)
       }
 
-      arr[removedIndex].used = true;
-      console.log(result);
+      // arr[removedIndex].used = true;
+      // console.log(result);
       // console.log(arr[removedIndex].used);
 
       return result;
