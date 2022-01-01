@@ -44,7 +44,7 @@ export default {
         {
           title: 'BUS 001',
           description: 'Foundations of Business',
-          credits: '1',
+          credits: 1,
           designation: 'BUS',
           completed: false,
           used: false,
@@ -52,7 +52,7 @@ export default {
         {
           title: 'ECO 001',
           description: 'Principles of Economics',
-          credits: '4',
+          credits: 4,
           designation: 'BUS',
           completed: false,
           used: false,
@@ -60,7 +60,7 @@ export default {
         {
           title: 'CSE 007',
           description: 'Introduction to Programming',
-          credits: '4',
+          credits: 4,
           designation: 'CS',
           completed: false,
           used: false,
@@ -68,7 +68,7 @@ export default {
         {
           title: 'MATH 021',
           description: 'Calculus I',
-          credits: '4',
+          credits: 4,
           designation: 'MATH',
           completed: false,
           used: false,
@@ -76,7 +76,7 @@ export default {
         {
           title: 'PHY 011',
           description: 'Introduction to Physics I',
-          credits: '4',
+          credits: 4,
           designation: 'NS',
           completed: false,
           used: false,
@@ -84,7 +84,7 @@ export default {
         {
           title: 'CSE 017',
           description: 'Programming and Data Structures',
-          credits: '3',
+          credits: 3,
           designation: 'CS',
           completed: false,
           used: false,
@@ -119,17 +119,19 @@ export default {
   //These are methods for the drag and drop group
   methods:{
 
-    getCredits(dropGroups){
-      dropGroups.forEach(Element => {
+    getCredits(semesters){
+      semesters.forEach(Element => {
+        console.log(Element);
         Element.totalCredits = 0;
         Element.children.forEach(Element1 => {
           Element.totalCredits = Element1.credits + Element.totalCredits;
         })
       })
     },
+
     save(received){
       console.log("Received:", received);
-      console.log(JSON.stringify(this.dropGroups));
+      console.log(JSON.stringify(this.semesters));
     },
 
     completedMarked(data) {
@@ -148,7 +150,7 @@ export default {
 
     destinationBucketDropEvent(columnName, result) {
       console.log("Destination: ", columnName, result)
-      this.getCredits(this.dropGroups);
+      this.getCredits(this.semesters);
     },
 
     cancel() {
