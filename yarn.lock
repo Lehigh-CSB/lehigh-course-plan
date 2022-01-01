@@ -9646,6 +9646,14 @@ void-elements@^2.0.1:
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
+vue-drag-n-drop@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/vue-drag-n-drop/-/vue-drag-n-drop-1.2.2.tgz#f6d1cebc6af3e2ed7ff75d17a1c01c0fc4effaad"
+  integrity sha512-xfmnTf1n0T4aeeRi3IRGyZ2T5xcUU4yXzYYxU62RWOXJbii8d5AdNtupkyA6803mj3kSxwjAv78rI/OJG1sBZQ==
+  dependencies:
+    lodash "^4.17.13"
+    vue-smooth-dnd "^0.2.1"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"

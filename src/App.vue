@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+  <header>CSB Course Manager</header>
+  <h2>Course management and planning allows to make the most out of your available credits at Lehigh!</h2>
+  <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
     
     <drag-drop
       :dropzones="semesters"
@@ -91,27 +94,42 @@ export default {
       semesters: [
         {
           name: 'Semester 1',
-          children: []
+          children: [],
+          totalCredits: 0,
         },
         {
           name: 'Semester 2',
-          children: []
+          children: [],
+          totalCredits: 0,
         },
         {
           name: 'Semester 3',
-          children: []
+          children: [],
+          totalCredits: 0,
         },
         {
           name: 'Semester 4',
-          children: []
+          children: [],
+          totalCredits: 0,
         }
-      ]
+      ],
     }
   },
 
+  //These are methods for the drag and drop group
   methods:{
+
+    getCredits(dropGroups){
+      dropGroups.forEach(Element => {
+        Element.totalCredits = 0;
+        Element.children.forEach(Element1 => {
+          Element.totalCredits = Element1.credits + Element.totalCredits;
+        })
+      })
+    },
     save(received){
-      console.log("Received:", received)
+      console.log("Received:", received);
+      console.log(JSON.stringify(this.dropGroups));
     },
 
     completedMarked(data) {
@@ -130,6 +148,7 @@ export default {
 
     destinationBucketDropEvent(columnName, result) {
       console.log("Destination: ", columnName, result)
+      this.getCredits(this.dropGroups);
     },
 
     cancel() {
@@ -146,6 +165,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+}
+header {
+  font-size: 30px;
+}
+h2 {
+  font-size: 16px;
 }
 </style>

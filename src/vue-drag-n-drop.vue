@@ -57,7 +57,7 @@
             </slot>
           </Draggable>
         </Container>
-
+        <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
       </div>
     </div>
 
@@ -145,7 +145,6 @@ export default {
           found.children.splice(addedIndex, 0, dropResult.payload);
         }
       }
-
       this.$emit('dropInDestinationBucket', columnId, dropResult);
     },
 
