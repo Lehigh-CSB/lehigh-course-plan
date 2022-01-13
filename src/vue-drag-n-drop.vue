@@ -42,8 +42,8 @@
         v-for="(item,ind) in semesters"
         v-bind:key="ind"
         class = 'ddDropContainer'>
-      <div :class="[ item.season === 'fall' ? { newSemesterLine} : {sameSemesterLine}]"
-       >
+      <div :style="[ item.season === 'fall' ? 'display: block;' : 'display: inline-block;']" 
+       > <!--- https://stackoverflow.com/questions/48455909/condition-in-v-bindstyle --->
         {{item.name}}
         <Container 
           group-name="col"
