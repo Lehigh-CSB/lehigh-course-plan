@@ -40,8 +40,9 @@
     <div class="dd-result-group">
       <div 
         v-for="(item,ind) in semesters"
-        v-bind:key="ind">
-      <div  v-bind:class="{ ddDropContainer: item.season === 'fall' }"
+        v-bind:key="ind"
+        class = 'ddDropContainer'>
+      <div :class="[ item.season === 'fall' ? { newSemesterLine} : {sameSemesterLine}]"
        >
         {{item.name}}
         <Container 
@@ -242,7 +243,6 @@ export default {
 <style>
 
 .ddDropContainer{
-  display: inline-block;
   vertical-align: top;
   width: 210px;
   padding: 10px;
@@ -252,6 +252,14 @@ export default {
   white-space: normal;
   background-color: #f3f3f3;
   box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+}
+
+.newSemesterLine{
+  display: block;
+}
+
+.sameSemesterLine{
+  display: inline-block;
 }
 
 .card{
