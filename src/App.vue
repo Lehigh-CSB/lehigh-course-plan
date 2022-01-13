@@ -48,6 +48,7 @@ export default {
           designation: 'BUS',
           completed: false,
           used: false,
+          season: 'fall',
         },
         {
           title: 'ECO 001',
@@ -90,28 +91,55 @@ export default {
           used: false,
         },
       ],
-
       semesters: [
         {
-          name: 'Semester 1',
+          name: 'Fall 1',
           children: [],
           totalCredits: 0,
+          season: 'fall',
         },
         {
-          name: 'Semester 2',
+          name: 'Winter 1',
           children: [],
           totalCredits: 0,
+          season: 'winter',
         },
         {
-          name: 'Semester 3',
+          name: 'Spring 1',
           children: [],
           totalCredits: 0,
+          season: 'spring',
         },
         {
-          name: 'Semester 4',
+          name: 'Summer 1',
           children: [],
           totalCredits: 0,
-        }
+          season: 'summer',
+        },
+        {
+          name: 'Fall 2',
+          children: [],
+          totalCredits: 0,
+          season: 'fall',
+        },
+        {
+          name: 'Winter 2',
+          children: [],
+          totalCredits: 0,
+          season: 'winter',
+        },
+        {
+          name: 'Spring 2',
+          children: [],
+          totalCredits: 0,
+          season: 'spring',
+        },
+        {
+          name: 'Summer 2',
+          children: [],
+          totalCredits: 0,
+          season: 'summer',
+        },
       ],
     }
   },

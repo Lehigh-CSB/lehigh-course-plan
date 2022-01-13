@@ -4,6 +4,9 @@
       {{originalTitle}}
     </h2>
     <div class="dd-first-group">
+        <button>
+          Add Semester
+        </button> <br>
         <button
           v-for="tab in tabs"
           v-bind:key="tab"
@@ -58,6 +61,7 @@
           </Draggable>
         </Container>
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
+        <div v-if="item.season === 'fall'"><br></div>
       </div>
     </div>
 
