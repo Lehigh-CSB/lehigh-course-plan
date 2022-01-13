@@ -40,8 +40,9 @@
     <div class="dd-result-group">
       <div 
         v-for="(item,ind) in semesters"
-        v-bind:key="ind"
-        class="dd-drop-container">
+        v-bind:key="ind">
+      <div  v-bind:class="{ ddDropContainer: item.season === 'fall' }"
+       >
         {{item.name}}
         <Container 
           group-name="col"
@@ -61,7 +62,8 @@
           </Draggable>
         </Container>
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
-        <div v-if="item.season === 'fall'"><br></div>
+      </div>
+        <br v-if="item.season === 'fall'">
       </div>
     </div>
 
@@ -239,7 +241,7 @@ export default {
 
 <style>
 
-.dd-drop-container{
+.ddDropContainer{
   display: inline-block;
   vertical-align: top;
   width: 210px;
