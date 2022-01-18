@@ -26,8 +26,10 @@
     }
   },
   "dependencies": {
+    "firebase": "^9.6.3",
     "lodash": "^4.17.13",
     "vue-drag-n-drop": "^1.2.2",
+    "vue-router": "^3.5.3",
     "vue-smooth-dnd": "^0.2.1"
   },
   "devDependencies": {
