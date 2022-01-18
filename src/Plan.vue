@@ -4,7 +4,8 @@
     <h2>Course management and planning allows to make the most out of your available credits at Lehigh!</h2>
     <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
 
-    <button @click="logout">Logout</button>
+    <button class="actionBtn" @click="logout">Logout</button>
+    <button class="actionBtn "@click="getUserInfo">Get User Info</button>
     
     <drag-drop
       :dropzones="semesters"
@@ -124,6 +125,18 @@ export default {
   //These are methods for the drag and drop group
   methods:{
 
+    getUserInfo(){
+        const auth = getAuth();
+        auth.onAuthStateChanged(function(user) {
+            if (user) {
+            // User is signed in.
+            console.log(user);
+            } else {
+            // No user is signed in.
+            }
+        });
+    },
+
     logout(){
       getAuth().signOut().then(() => {
         this.$router.replace('/auth');
@@ -184,6 +197,11 @@ header {
   font-size: 30px;
 }
 h2 {
+  font-size: 16px;
+}
+.actionBtn {
+  margin: 20px;
+  padding: 10px;
   font-size: 16px;
 }
 </style>
