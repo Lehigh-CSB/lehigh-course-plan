@@ -5,7 +5,7 @@
   <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
     
     <drag-drop
-      :dropzones="semesters"
+      :dropzones="years"
       :dropzonesTitle="'XYZ Company Teams'"
       :originalData="courses"
       :originalTitle="'LU Course Plan'"
@@ -91,7 +91,10 @@ export default {
           used: false,
         },
       ],
-      semesters: [
+      years: [
+        {
+        title: 'Year 1',
+        semesters: [
         {
           name: 'Fall 1',
           children: [],
@@ -116,6 +119,11 @@ export default {
           totalCredits: 0,
           season: 'summer',
         },
+        ],
+        },
+        {
+        title: 'Year 2',
+        semesters: [
         {
           name: 'Fall 2',
           children: [],
@@ -140,6 +148,8 @@ export default {
           totalCredits: 0,
           season: 'summer',
         },
+        ],
+        },
       ],
     }
   },
@@ -147,19 +157,18 @@ export default {
   //These are methods for the drag and drop group
   methods:{
 
-    getCredits(semesters){
-      semesters.forEach(Element => {
-        console.log(Element);
-        Element.totalCredits = 0;
-        Element.children.forEach(Element1 => {
-          Element.totalCredits = Element1.credits + Element.totalCredits;
-        })
-      })
-    },
+    // getCredits(years){
+    //   years.forEach(Element => {
+    //     console.log(Element);
+    //     Element.totalCredits = 0;
+    //     Element.children.forEach(Element1 => {
+    //       Element.totalCredits = Element1.credits + Element.totalCredits;
+    //     })
+    //   })
+    // },
 
     save(received){
       console.log("Received:", received);
-      console.log(JSON.stringify(this.semesters));
     },
 
     completedMarked(data) {
@@ -178,7 +187,7 @@ export default {
 
     destinationBucketDropEvent(columnName, result) {
       console.log("Destination: ", columnName, result)
-      this.getCredits(this.semesters);
+      //this.getCredits(this.years);
     },
 
     cancel() {

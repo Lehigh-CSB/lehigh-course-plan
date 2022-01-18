@@ -39,12 +39,13 @@
     <hr>
     <div class="dd-result-group">
       <div 
-        v-for="(item,ind) in semesters"
-        v-bind:key="ind"
-        class = 'ddDropContainer'
-        v-bind:style=" item.season === 'fall' ? 'display: inline-block;' : 'display: inline-block;'">
+        v-for="(sem,ind) in years"
+        v-bind:key="ind">
+        <div 
+        v-for="(item,ind1) in sem.semesters"
+        v-bind:key="ind1"
+         class = 'ddDropContainer'>
         <!--- https://stackoverflow.com/questions/48455909/condition-in-v-bindstyle --->
-        <div class = 'ddDropContainer'>
         {{item.name}}
         <Container 
           group-name="col"
@@ -65,8 +66,8 @@
         </Container>
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
         </div>
-        <br v-if="item.season === 'fall'">
-      </div>
+        <br>
+        </div>
     </div>
 
     <div class="dd-drop-actions" v-if="enableSave || enableCancel">
@@ -95,7 +96,7 @@ export default {
   data: function () {
     return {
       items:[],
-      semesters: [],
+      years: [],
       currentTab: 'CS',
       tabs: ['CS', 'BUS', 'MATH', 'NS'],
     }
@@ -110,11 +111,11 @@ export default {
   created() {
     if (this.inPlace) {
       this.items = this.originalData;
-      this.semesters = this.dropzones;
+      this.years = this.dropzones;
     }
     else {
       this.items = _.cloneDeep(this.originalData);
-      this.semesters = _.cloneDeep(this.dropzones);
+      this.years = _.cloneDeep(this.dropzones);
     }
   },
 
@@ -144,12 +145,12 @@ export default {
       if (removedIndex !== null || addedIndex !== null) {
 
         if(removedIndex !== null){
-          let found = this.semesters.filter(p => p.name === columnId)[0];
+          let found = this.years.filter(p => p.name === columnId)[0];
           found.children.splice(removedIndex, 1);
         }
 
         if (addedIndex !== null){
-          let found = this.semesters.filter(p => p.name === columnId)[0];
+          let found = this.years.filter(p => p.name === columnId)[0];
           found.children.splice(addedIndex, 0, dropResult.payload);
         }
       }
@@ -163,7 +164,7 @@ export default {
     getCardPayload(id){
       let that = this;
       return function(index) {
-        let found = that.semesters.filter(p => p.name === id)[0].children[
+        let found = that.years.filter(p => p.name === id)[0].children[
           index
         ];
 
@@ -226,7 +227,7 @@ export default {
        * @type {Object} 
       */
       this.$emit('save', {
-        dropzones: this.semesters,
+        dropzones: this.years,
         originalBucket: this.items
       });
     },
@@ -244,6 +245,7 @@ export default {
 <style>
 
 .ddDropContainer{
+  display: inline-block;
   vertical-align: top;
   width: 210px;
   padding: 10px;
@@ -253,14 +255,6 @@ export default {
   white-space: normal;
   background-color: #f3f3f3;
   box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
-}
-
-.newSemesterLine{
-  display: block;
-}
-
-.sameSemesterLine{
-  display: inline-block;
 }
 
 .card{
