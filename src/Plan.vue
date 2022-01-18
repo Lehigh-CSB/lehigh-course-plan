@@ -36,6 +36,9 @@ import DragDrop from './vue-drag-n-drop.vue';
 import CustomCard from './components/CustomCard.vue';
 import Auth from './Auth.vue';
 import {getAuth} from 'firebase/auth';
+import { getDatabase, ref, set } from "firebase/database";
+
+// const database = getDatabase();
 
 export default {
   name: 'app',
@@ -125,6 +128,15 @@ export default {
   //These are methods for the drag and drop group
   methods:{
 
+    writeUserData(email, name) {
+        const db = getDatabase();
+        set(ref(db, 'users/' + email), {
+            name: name,
+            email: email,
+            semesters: this.semesters,
+        });
+    },
+
     getUserInfo(){
         const auth = getAuth();
         auth.onAuthStateChanged(function(user) {
@@ -154,8 +166,11 @@ export default {
     },
 
     save(received){
-      console.log("Received:", received);
-      console.log(JSON.stringify(this.semesters));
+        const auth = getAuth();
+        const user = auth.currentUser;
+        console.log("Received:", received);
+        console.log(JSON.stringify(this.semesters));
+        this.writeUserData(user.email.split("@")[0], user.displayName);
     },
 
     completedMarked(data) {
