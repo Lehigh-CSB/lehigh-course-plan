@@ -41,8 +41,8 @@
       <div 
         v-for="(item,ind) in semesters"
         v-bind:key="ind"
-        class = 'ddDropContainer'>
-      <div v-bind:style=" item.season === 'fall' ? 'display: block;' : 'display: inline-block;'" > 
+        class = 'ddDropContainer'
+        v-bind:style=" item.season === 'fall' ? 'display: inline-block;' : 'display: inline-block;'">
         <!--- https://stackoverflow.com/questions/48455909/condition-in-v-bindstyle --->
         {{item.name}}
         <Container 
@@ -63,8 +63,6 @@
           </Draggable>
         </Container>
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
-      </div>
-        <br v-if="item.season === 'fall'">
       </div>
     </div>
 
