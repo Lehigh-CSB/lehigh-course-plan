@@ -51,7 +51,6 @@ export default {
     const dbRef = ref(getDatabase());
     const auth = getAuth();
     const user = auth.currentUser;
-    // let loadedSemesters = [];
     get(child(dbRef, `users/${user.email.split("@")[0]}`)).then((snapshot) => {
       if (snapshot.exists()) {
         this.semesters = JSON.parse(snapshot.val().semesters)
@@ -63,13 +62,6 @@ export default {
     }).catch((error) => {
       console.error(error);
     });
-    // this.$forceUpdate();
-  },
-
-  updated(){
-    console.log("updated called inside plan.vue");
-    // this.$root.$emit('VueDragNDrop:updated');
-    // DragDrop.loadFromDatabase();
   },
 
   data() {
@@ -124,8 +116,6 @@ export default {
           used: false,
         },
       ],
-
-      // semesters: loadedSemesters,
 
       semesters: [
         {

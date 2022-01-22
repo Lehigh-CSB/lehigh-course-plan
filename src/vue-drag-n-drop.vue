@@ -102,17 +102,6 @@ export default {
     }
   },
 
-  // mounted(){
-  //   this.$root.$on('VueDragNDrop:updated', () => {
-  //     console.log("VueDragNDrop event fired");
-  //   });
-  // },
-
-  // updated(){
-  //   // console.log('updated');
-  //   console.log("dropzones: ", this.dropzones);
-  // },
-
   created() {
     console.log('created called in veu-drag-n-drop');
     this.updateSemesterLayout();
