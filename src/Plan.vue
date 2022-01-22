@@ -1,6 +1,6 @@
 <template>
   <div id="plan">
-    <header>CSB Course Manager</header>
+    <header>Lehigh Course Plan Manager</header>
     <h2>Course management and planning allows to make the most out of your available credits at Lehigh!</h2>
     <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
 
