@@ -1,5 +1,6 @@
 <template>
   <div class="vue-drag-n-drop">
+    <button class="actionBtn "@click="updateSemesterLayout">Refresh</button>
     <h2 class="dd-title">
       {{originalTitle}}
     </h2>
@@ -78,13 +79,15 @@ import { Container, Draggable } from "vue-smooth-dnd";
 import _ from 'lodash';
 import RequiredProps from './drag-n-drop-props.js';
 import Tab from './components/Tab.vue';
+import {getAuth} from 'firebase/auth';
+import { getDatabase, ref, set, child, get } from "firebase/database";
 
 export default {
   name: "VueDragNDrop",
   components: { Container, Draggable, Tab},
   props: RequiredProps,
 
-  data: function () {
+  data: function () {  
     return {
       items:[],
       semesters: [],
@@ -100,17 +103,24 @@ export default {
   },
 
   created() {
-    if (this.inPlace) {
-      this.items = this.originalData;
-      this.semesters = this.dropzones;
-    }
-    else {
-      this.items = _.cloneDeep(this.originalData);
-      this.semesters = _.cloneDeep(this.dropzones);
-    }
+    console.log('created called in veu-drag-n-drop');
+    this.updateSemesterLayout();
+    console.log(this.semesters);
   },
 
   methods: {
+    updateSemesterLayout(){
+      if (this.inPlace) {
+        this.items = this.originalData;
+        this.semesters = this.dropzones;
+      }
+      else {
+        console.log("does it ever get called?");
+        this.items = _.cloneDeep(this.originalData);
+        this.semesters = _.cloneDeep(this.dropzones);
+      }
+    },
+
     /** 
      * Even that runs when an item is dropped in the original list bucket.
      * @param {Object} dropResult Holds the value of what is dropped.
@@ -130,9 +140,6 @@ export default {
     onCardDrop(columnId, dropResult) {
       let removedIndex = dropResult.removedIndex;
       let addedIndex = dropResult.addedIndex;
-      // console.log(removedIndex);
-      // console.log(this.originalData);
-      // console.log(dropResult.payload);
       if (removedIndex !== null || addedIndex !== null) {
 
         if(removedIndex !== null){
@@ -185,13 +192,10 @@ export default {
       let { removedIndex, addedIndex, payload } = dragResult
       removedIndex = removedIndex % arr.length;
       addedIndex = addedIndex % arr.length;
-      // console.log(arr[removedIndex]);
       if (removedIndex === null && addedIndex === null) return arr
 
       const result = [...arr]
       let itemToAdd = payload
-
-      // console.log(arr[removedIndex].used);
 
       if (removedIndex !== null) {
         itemToAdd = result.splice(removedIndex, 1)[0]
@@ -200,10 +204,6 @@ export default {
       if (addedIndex !== null) {
         result.splice(addedIndex, 0, itemToAdd)
       }
-
-      // arr[removedIndex].used = true;
-      // console.log(result);
-      // console.log(arr[removedIndex].used);
 
       return result;
     },
