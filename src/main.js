@@ -31,8 +31,3 @@ getAuth().onAuthStateChanged(() => {
     }).$mount('#app')
   }
 });
-
-// new Vue({
-//   router,
-//   render: h => h(Auth)
-// }).$mount('#auth')

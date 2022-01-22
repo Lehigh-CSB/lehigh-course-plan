@@ -36,9 +36,7 @@ import DragDrop from './vue-drag-n-drop.vue';
 import CustomCard from './components/CustomCard.vue';
 import Auth from './Auth.vue';
 import {getAuth} from 'firebase/auth';
-import { getDatabase, ref, set } from "firebase/database";
-
-// const database = getDatabase();
+import { getDatabase, ref, set, child, get } from "firebase/database";
 
 export default {
   name: 'app',
@@ -47,6 +45,33 @@ export default {
     CustomCard,
     Auth,
   },
+
+  beforeCreate(){
+    console.log('beforeCreate called inside plan.vue');
+    const dbRef = ref(getDatabase());
+    const auth = getAuth();
+    const user = auth.currentUser;
+    // let loadedSemesters = [];
+    get(child(dbRef, `users/${user.email.split("@")[0]}`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        this.semesters = JSON.parse(snapshot.val().semesters)
+        console.log(this.semesters);
+        
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+    // this.$forceUpdate();
+  },
+
+  updated(){
+    console.log("updated called inside plan.vue");
+    // this.$root.$emit('VueDragNDrop:updated');
+    // DragDrop.loadFromDatabase();
+  },
+
   data() {
     return{
       courses: [
@@ -100,6 +125,8 @@ export default {
         },
       ],
 
+      // semesters: loadedSemesters,
+
       semesters: [
         {
           name: 'Semester 1',
@@ -133,7 +160,8 @@ export default {
         set(ref(db, 'users/' + email), {
             name: name,
             email: email,
-            semesters: this.semesters,
+            // semesters: this.semesters,
+            semesters: JSON.stringify(this.semesters),
         });
     },
 
@@ -157,7 +185,6 @@ export default {
 
     getCredits(semesters){
       semesters.forEach(Element => {
-        console.log(Element);
         Element.totalCredits = 0;
         Element.children.forEach(Element1 => {
           Element.totalCredits = Element1.credits + Element.totalCredits;
@@ -188,7 +215,6 @@ export default {
     },
 
     destinationBucketDropEvent(columnName, result) {
-      console.log("Destination: ", columnName, result)
       this.getCredits(this.semesters);
     },
 
