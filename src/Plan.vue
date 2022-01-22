@@ -160,6 +160,7 @@ export default {
         auth.onAuthStateChanged(function(user) {
             if (user) {
             // User is signed in.
+            alert("Name: " + user.displayName + "\nEmail: " + user.email);
             console.log(user);
             } else {
             // No user is signed in.
@@ -188,6 +189,7 @@ export default {
         console.log("Received:", received);
         console.log(JSON.stringify(this.semesters));
         this.writeUserData(user.email.split("@")[0], user.displayName);
+        alert("Saved!");
     },
 
     completedMarked(data) {
