@@ -93,22 +93,42 @@ export default {
 
       semesters: [
         {
-          name: 'Semester 1',
+          name: 'Fall 1',
           children: [],
           totalCredits: 0,
         },
         {
-          name: 'Semester 2',
+          name: 'Spring 1',
           children: [],
           totalCredits: 0,
         },
         {
-          name: 'Semester 3',
+          name: 'Fall 2',
           children: [],
           totalCredits: 0,
         },
         {
-          name: 'Semester 4',
+          name: 'Spring 2',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Fall 3',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Spring 3',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Fall 4',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Spring 4',
           children: [],
           totalCredits: 0,
         }

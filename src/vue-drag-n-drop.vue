@@ -60,6 +60,7 @@
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
       </div>
     </div>
+    <hr>
 
     <div class="dd-drop-actions" v-if="enableSave || enableCancel">
       <button class="button dd-save" v-if="enableSave" @click="saveClicked()">
@@ -238,7 +239,7 @@ export default {
 .dd-drop-container{
   display: inline-block;
   vertical-align: top;
-  width: 210px;
+  width: 15%;
   padding: 10px;
   margin: 5px;
   min-height: 5em;
@@ -266,8 +267,7 @@ export default {
 }
 
 .dd-result-group {
-  overflow: auto;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .dd-first-group {
