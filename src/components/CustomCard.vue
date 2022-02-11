@@ -1,7 +1,6 @@
 <template>
   <div class="cc-card">
-    <h3>{{data.title}}</h3>
-    <h3 text-align: right> {{data.credits}}</h3>
+    <h3>{{data.title}} {{data.credits}}</h3>
   </div>
 </template>
 
