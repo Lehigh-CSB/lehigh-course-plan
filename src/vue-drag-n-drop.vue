@@ -38,9 +38,9 @@
     </div>
     <hr>
     <div class="dd-result-group">
-      <div 
+      <!-- <div 
         v-for="(sem,ind) in years"
-        v-bind:key="ind">
+        v-bind:key="ind"> -->
         <div 
         v-for="(item,ind1) in sem.semesters"
         v-bind:key="ind1"
@@ -66,8 +66,8 @@
         </Container>
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
         </div>
-        <hr>
-        </div>
+        <!-- <hr>
+        </div> -->
     </div>
 
     <div class="dd-drop-actions" v-if="enableSave || enableCancel">
@@ -96,7 +96,7 @@ export default {
   data: function () {
     return {
       items:[],
-      years: [],
+      semesters: [],
       currentTab: 'CS',
       tabs: ['CS', 'BUS', 'MATH', 'NS'],
     }
@@ -111,11 +111,11 @@ export default {
   created() {
     if (this.inPlace) {
       this.items = this.originalData;
-      this.years = this.dropzones;
+      this.semesters = this.dropzones;
     }
     else {
       this.items = _.cloneDeep(this.originalData);
-      this.years = _.cloneDeep(this.dropzones);
+      this.semesters = _.cloneDeep(this.dropzones);
     }
   },
 
@@ -139,18 +139,18 @@ export default {
     onCardDrop(columnId, dropResult) {
       let removedIndex = dropResult.removedIndex;
       let addedIndex = dropResult.addedIndex;
-      // console.log(removedIndex);
-      // console.log(this.originalData);
-      // console.log(dropResult.payload);
+      console.log(removedIndex);
+      console.log(this.originalData);
+      console.log(dropResult.payload);
       if (removedIndex !== null || addedIndex !== null) {
 
         if(removedIndex !== null){
-          let found = this.years.semesters.filter(p => p.name === columnId)[0];
+          let found = this.semesters.filter(p => p.name === columnId)[0];
           found.children.splice(removedIndex, 1);
         }
 
         if (addedIndex !== null){
-          let found = this.years.semesters.filter(p => p.name === columnId)[0];
+          let found = this.semesters.filter(p => p.name === columnId)[0];
           found.children.splice(addedIndex, 0, dropResult.payload);
         }
       }
@@ -164,7 +164,7 @@ export default {
     getCardPayload(id){
       let that = this;
       return function(index) {
-        let found = that.years.semesters.filter(p => p.name === id)[0].children[
+        let found = that.semesters.filter(p => p.name === id)[0].children[
           index
         ];
 
@@ -227,7 +227,7 @@ export default {
        * @type {Object} 
       */
       this.$emit('save', {
-        dropzones: this.years,
+        dropzones: this.semesters,
         originalBucket: this.items
       });
     },

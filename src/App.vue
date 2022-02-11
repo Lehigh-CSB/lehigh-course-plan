@@ -5,7 +5,7 @@
   <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
     
     <drag-drop
-      :dropzones="years"
+      :dropzones="semesters"
       :dropzonesTitle="'XYZ Company Teams'"
       :originalData="courses"
       :originalTitle="'LU Course Plan'"
@@ -91,9 +91,6 @@ export default {
           used: false,
         },
       ],
-      years: [
-        {
-        title: 'Year 1',
         semesters: [
         {
           name: 'Fall 1',
@@ -120,95 +117,6 @@ export default {
           season: 'summer',
         },
         ],
-        },
-        {
-        title: 'Year 2',
-        semesters: [
-        {
-          name: 'Fall 2',
-          children: [],
-          totalCredits: 0,
-          season: 'fall',
-        },
-        {
-          name: 'Winter 2',
-          children: [],
-          totalCredits: 0,
-          season: 'winter',
-        },
-        {
-          name: 'Spring 2',
-          children: [],
-          totalCredits: 0,
-          season: 'spring',
-        },
-        {
-          name: 'Summer 2',
-          children: [],
-          totalCredits: 0,
-          season: 'summer',
-        },
-        ],
-        },
-        {
-        title: 'Year 3',
-        semesters: [
-        {
-          name: 'Fall 3',
-          children: [],
-          totalCredits: 0,
-          season: 'fall',
-        },
-        {
-          name: 'Winter 3',
-          children: [],
-          totalCredits: 0,
-          season: 'winter',
-        },
-        {
-          name: 'Spring 3',
-          children: [],
-          totalCredits: 0,
-          season: 'spring',
-        },
-        {
-          name: 'Summer 3',
-          children: [],
-          totalCredits: 0,
-          season: 'summer',
-        },
-        ],
-        },
-        {
-        title: 'Year 4',
-        semesters: [
-        {
-          name: 'Fall 4',
-          children: [],
-          totalCredits: 0,
-          season: 'fall',
-        },
-        {
-          name: 'Winter 4',
-          children: [],
-          totalCredits: 0,
-          season: 'winter',
-        },
-        {
-          name: 'Spring 4',
-          children: [],
-          totalCredits: 0,
-          season: 'spring',
-        },
-        {
-          name: 'Summer 4',
-          children: [],
-          totalCredits: 0,
-          season: 'summer',
-        },
-        ],
-        },
-      ],
     }
   },
 
