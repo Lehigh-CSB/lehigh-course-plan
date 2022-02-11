@@ -150,6 +150,64 @@ export default {
         },
         ],
         },
+        {
+        title: 'Year 3',
+        semesters: [
+        {
+          name: 'Fall 3',
+          children: [],
+          totalCredits: 0,
+          season: 'fall',
+        },
+        {
+          name: 'Winter 3',
+          children: [],
+          totalCredits: 0,
+          season: 'winter',
+        },
+        {
+          name: 'Spring 3',
+          children: [],
+          totalCredits: 0,
+          season: 'spring',
+        },
+        {
+          name: 'Summer 3',
+          children: [],
+          totalCredits: 0,
+          season: 'summer',
+        },
+        ],
+        },
+        {
+        title: 'Year 4',
+        semesters: [
+        {
+          name: 'Fall 4',
+          children: [],
+          totalCredits: 0,
+          season: 'fall',
+        },
+        {
+          name: 'Winter 4',
+          children: [],
+          totalCredits: 0,
+          season: 'winter',
+        },
+        {
+          name: 'Spring 4',
+          children: [],
+          totalCredits: 0,
+          season: 'spring',
+        },
+        {
+          name: 'Summer 4',
+          children: [],
+          totalCredits: 0,
+          season: 'summer',
+        },
+        ],
+        },
       ],
     }
   },

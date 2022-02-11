@@ -66,7 +66,7 @@
         </Container>
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
         </div>
-        <br>
+        <hr>
         </div>
     </div>
 
@@ -145,12 +145,12 @@ export default {
       if (removedIndex !== null || addedIndex !== null) {
 
         if(removedIndex !== null){
-          let found = this.years.filter(p => p.name === columnId)[0];
+          let found = this.years.semesters.filter(p => p.name === columnId)[0];
           found.children.splice(removedIndex, 1);
         }
 
         if (addedIndex !== null){
-          let found = this.years.filter(p => p.name === columnId)[0];
+          let found = this.years.semesters.filter(p => p.name === columnId)[0];
           found.children.splice(addedIndex, 0, dropResult.payload);
         }
       }
@@ -164,7 +164,7 @@ export default {
     getCardPayload(id){
       let that = this;
       return function(index) {
-        let found = that.years.filter(p => p.name === id)[0].children[
+        let found = that.years.semesters.filter(p => p.name === id)[0].children[
           index
         ];
 
