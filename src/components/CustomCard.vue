@@ -1,18 +1,7 @@
 <template>
   <div class="cc-card">
     <h3>{{data.title}}</h3>
-    <p>
-      {{data.description}}
-    </p>
-    <p>
-      Credits: {{data.credits}}
-    </p>
-    <button v-if="!data.completed" class="cc-btn-not-completed" @click="markCompleted()">
-      Not Completed
-    </button>
-    <button v-else class="cc-btn-completed" @click="markCompleted()">
-      Completed
-    </button>
+    <h3 text-align: right> {{data.credits}}</h3>
   </div>
 </template>
 
