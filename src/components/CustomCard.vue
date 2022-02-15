@@ -13,10 +13,25 @@
     <button v-else class="cc-btn-completed" @click="markCompleted()">
       Completed
     </button>
+    <b-dropdown id="dropdown-left" size="sm" text="Grade" variant="info" class="m-1">
+      <b-dropdown-item href="#">A</b-dropdown-item>
+      <b-dropdown-item href="#">A-</b-dropdown-item>
+      <b-dropdown-item href="#">B+</b-dropdown-item>
+      <b-dropdown-item href="#">B</b-dropdown-item>
+      <b-dropdown-item href="#">B-</b-dropdown-item>
+      <b-dropdown-item href="#">C+</b-dropdown-item>
+      <b-dropdown-item href="#">C</b-dropdown-item>
+      <b-dropdown-item href="#">C-</b-dropdown-item>
+      <b-dropdown-item href="#">D+</b-dropdown-item>
+      <b-dropdown-item href="#">D</b-dropdown-item>
+      <b-dropdown-item href="#">D-</b-dropdown-item>
+      <b-dropdown-item href="#">F</b-dropdown-item>
+    </b-dropdown>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'CustomCard',
   props: ['data'],
