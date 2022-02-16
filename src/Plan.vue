@@ -37,6 +37,7 @@ import CustomCard from './components/CustomCard.vue';
 import Auth from './Auth.vue';
 import {getAuth} from 'firebase/auth';
 import { getDatabase, ref, set, child, get } from "firebase/database";
+import courses from './courses.json';
 
 export default {
   name: 'app',
@@ -44,6 +45,7 @@ export default {
     DragDrop,
     CustomCard,
     Auth,
+  courseData: courses
   },
 
   beforeCreate(){
@@ -66,57 +68,7 @@ export default {
 
   data() {
     return{
-      courses: [
-        {
-          title: 'BUS 001',
-          description: 'Foundations of Business',
-          credits: 1,
-          designation: 'BUS',
-          completed: false,
-          used: false,
-        },
-        {
-          title: 'ECO 001',
-          description: 'Principles of Economics',
-          credits: 4,
-          designation: 'BUS',
-          completed: false,
-          used: false,
-        },
-        {
-          title: 'CSE 007',
-          description: 'Introduction to Programming',
-          credits: 4,
-          designation: 'CS',
-          completed: false,
-          used: false,
-        },
-        {
-          title: 'MATH 021',
-          description: 'Calculus I',
-          credits: 4,
-          designation: 'MATH',
-          completed: false,
-          used: false,
-        },
-        {
-          title: 'PHY 011',
-          description: 'Introduction to Physics I',
-          credits: 4,
-          designation: 'NS',
-          completed: false,
-          used: false,
-        },
-        {
-          title: 'CSE 017',
-          description: 'Programming and Data Structures',
-          credits: 3,
-          designation: 'CS',
-          completed: false,
-          used: false,
-        },
-      ],
-
+      courses,
       semesters: [
         {
           name: 'Semester 1',
