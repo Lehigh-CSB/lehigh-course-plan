@@ -240,10 +240,9 @@ export default {
   display: inline-block;
   vertical-align: top;
   width: 15%;
-  padding: 10px;
-  margin: 5px;
+  padding: 1%;
+  margin: 2px;
   min-height: 5em;
-  margin-right: 10px;
   white-space: normal;
   background-color: #f3f3f3;
   box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
