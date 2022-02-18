@@ -4,6 +4,9 @@
       {{originalTitle}}
     </h2>
     <div class="dd-first-group">
+      <button
+      v-on:click="this.semesters.addSemester(this.semesters,'test')"
+      > Add Semester </button> <br>
         <button
           v-for="tab in tabs"
           v-bind:key="tab"

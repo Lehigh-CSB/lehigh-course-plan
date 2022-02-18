@@ -149,6 +149,10 @@ export default {
       })
     },
 
+    addSemester(semesters,nameSem){
+      semesters
+    },
+
     save(received){
       console.log("Received:", received);
       console.log(JSON.stringify(this.semesters));
@@ -171,6 +175,7 @@ export default {
     destinationBucketDropEvent(columnName, result) {
       console.log("Destination: ", columnName, result)
       this.getCredits(this.semesters);
+      this.addSemester(this.semesters,'test');
     },
 
     cancel() {
