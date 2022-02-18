@@ -5,6 +5,9 @@
       {{originalTitle}}
     </h2>
     <div class="dd-first-group">
+      <button
+      v-on:click="this.semesters.addSemester(this.semesters,'test')"
+      > Add Semester </button> <br>
         <button
           v-for="tab in tabs"
           v-bind:key="tab"
@@ -61,6 +64,7 @@
         <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
       </div>
     </div>
+    <hr>
 
     <div class="dd-drop-actions" v-if="enableSave || enableCancel">
       <button class="button dd-save" v-if="enableSave" @click="saveClicked()">
@@ -238,11 +242,10 @@ export default {
 .dd-drop-container{
   display: inline-block;
   vertical-align: top;
-  width: 210px;
-  padding: 10px;
-  margin: 5px;
+  width: 15%;
+  padding: 1%;
+  margin: 2px;
   min-height: 5em;
-  margin-right: 10px;
   white-space: normal;
   background-color: #f3f3f3;
   box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
@@ -266,8 +269,7 @@ export default {
 }
 
 .dd-result-group {
-  overflow: auto;
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .dd-first-group {
