@@ -178,9 +178,9 @@ export default {
     cancel() {
       console.log("Cancel hit");
     },
-    addSem(nameSem){
+    addSem(received){
       this.semesters.push({
-          name: nameSem,
+          name: received.name,
           children: [],
           totalCredits: 0,
         });
