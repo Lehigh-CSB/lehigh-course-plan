@@ -92,7 +92,7 @@ export default {
       items:[],
       semesters: [],
       currentTab: 'CS',
-      tabs: ['CS', 'BUS', 'MATH', 'NS'],
+      tabs: ['CS', 'BUS', 'MATH', 'NS', 'CSB'],
     }
   },
 
