@@ -45,7 +45,7 @@ export default {
     DragDrop,
     CustomCard,
     Auth,
-  courseData: courses
+    courseData: courses
   },
 
   beforeCreate(){
@@ -71,22 +71,42 @@ export default {
       courses,
       semesters: [
         {
-          name: 'Semester 1',
+          name: 'Fall 1',
           children: [],
           totalCredits: 0,
         },
         {
-          name: 'Semester 2',
+          name: 'Spring 1',
           children: [],
           totalCredits: 0,
         },
         {
-          name: 'Semester 3',
+          name: 'Fall 2',
           children: [],
           totalCredits: 0,
         },
         {
-          name: 'Semester 4',
+          name: 'Spring 2',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Fall 3',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Spring 3',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Fall 4',
+          children: [],
+          totalCredits: 0,
+        },
+        {
+          name: 'Spring 4',
           children: [],
           totalCredits: 0,
         }
@@ -127,12 +147,18 @@ export default {
     },
 
     getCredits(semesters){
+      console.log("getCredits called");
       semesters.forEach(Element => {
         Element.totalCredits = 0;
         Element.children.forEach(Element1 => {
           Element.totalCredits = Element1.credits + Element.totalCredits;
+          // console.log(Element.totalCredits);
         })
       })
+    },
+
+    addSemester(semesters,nameSem){
+      semesters
     },
 
     save(received){
@@ -160,6 +186,7 @@ export default {
 
     destinationBucketDropEvent(columnName, result) {
       this.getCredits(this.semesters);
+      this.addSemester(this.semesters, 'test');
     },
 
     cancel() {
