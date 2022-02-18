@@ -7,9 +7,7 @@
       <button
       v-on:click="saveSemester()"
       > Add Semester </button> <br>
-      <button
-      v-on:click="saveSemester()"
-      > Remove Semester </button> <br>
+      <input v-model="semesterName" placeholder="edit me"><br>
         <button
           v-for="tab in tabs"
           v-bind:key="tab"
@@ -240,7 +238,7 @@ export default {
       /*
       This saves a semester
       */
-      this.$emit("addSem",{name: "test"});
+      this.$emit("addSem",{name: semesterName});
     }
   }
 }
