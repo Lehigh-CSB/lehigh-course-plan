@@ -16,6 +16,7 @@
       @dropInDestinationBucket="destinationBucketDropEvent"
       @save="save"
       @cancel="cancel"
+      @addSem="addSem"
     >
       <template #dd-card="{ cardData }">
         <custom-card
@@ -149,10 +150,6 @@ export default {
       })
     },
 
-    addSemester(semesters,nameSem){
-      semesters
-    },
-
     save(received){
       console.log("Received:", received);
       console.log(JSON.stringify(this.semesters));
@@ -180,6 +177,13 @@ export default {
 
     cancel() {
       console.log("Cancel hit");
+    },
+    addSem(nameSem){
+      this.semesters.push({
+          name: nameSem,
+          children: [],
+          totalCredits: 0,
+        });
     }
   }
 }
