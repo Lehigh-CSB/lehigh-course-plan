@@ -1,13 +1,27 @@
 <template>
   <div class="cc-card">
-    <h3>{{data.title}} {{data.credits}}</h3>
+    <h3 class="inline_element">{{data.title}} {{data.credits}}</h3>
+    <div class="inline_element" style="border-radius: 0.3rem">
+      <v-app>
+        <v-select
+          :options="['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
+        >
+        </v-select>
+      </v-app>
+    </div>
   </div>
 </template>
 
 <script>
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+
 export default {
   name: 'CustomCard',
   props: ['data'],
+  components: {
+    vSelect
+  },
   methods: {
     markCompleted() {
       this.$emit('completed', this.data);
@@ -18,7 +32,22 @@ export default {
 </script>
 
 <style>
+
+.v-select__selections input { 
+  display: none;
+}
+
+.select {
+    min-height: 100px;
+}
+
+.inline_element {
+  margin: 2px;
+  flex-basis: 100px;
+}
+
 .cc-card {
+  display: flex;
   padding: 10px;
   text-align: left;
   border: 1px solid #dbdbdb;
