@@ -2,12 +2,12 @@
   <div class="cc-card">
     <h3 class="inline_element">{{data.title}} {{data.credits}}</h3>
     <div class="inline_element" style="border-radius: 0.3rem">
-      <v-app>
-        <v-select
-          :options="['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
-        >
-        </v-select>
-      </v-app>
+      <v-select
+        placeholder="Grade"
+        :options="['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
+        append-to-body
+      >
+      </v-select>
     </div>
   </div>
 </template>
@@ -33,12 +33,8 @@ export default {
 
 <style>
 
-.v-select__selections input { 
-  display: none;
-}
-
 .select {
-    min-height: 100px;
+    min-height: 10px;
 }
 
 .inline_element {
