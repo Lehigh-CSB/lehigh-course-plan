@@ -7,7 +7,16 @@
       <button
       v-on:click="saveSemester()"
       > Add Semester </button> <br>
-      <input v-model="semesterName" placeholder="edit me"><br>
+      <select v-model="selected"
+      v-bind:key="selected"
+      v-on:click="selected=selected">
+      <option disabled value="">Select New Semester</option>
+      <option>Fall</option>
+      <option>Winter</option>
+      <option>Summer</option>
+      <option>Spring</option>
+      </select>
+      <br>
         <button
           v-for="tab in tabs"
           v-bind:key="tab"
@@ -95,6 +104,7 @@ export default {
       semesters: [],
       currentTab: 'CS',
       tabs: ['CS', 'BUS', 'MATH', 'NS'],
+      selected : 'Test',
     }
   },
 
@@ -238,7 +248,7 @@ export default {
       /*
       This saves a semester
       */
-      this.$emit("addSem",{name: semesterName});
+      this.$emit("addSem",{name: this.selected});
     }
   }
 }
