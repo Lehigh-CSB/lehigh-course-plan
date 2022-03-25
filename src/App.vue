@@ -17,6 +17,7 @@
       @save="save"
       @cancel="cancel"
       @addSem="addSem"
+      @deleteSem="deleteSem"
     >
       <template #dd-card="{ cardData }">
         <custom-card
@@ -179,11 +180,48 @@ export default {
       console.log("Cancel hit");
     },
     addSem(received){
-      this.semesters.push({
-          name: received.name,
+      if(this.checkInputSemester(received)){
+        return;
+      }
+      this.semesters.sort()
+      var contains = false;
+      this.semesters.forEach(Element =>{
+        if(Element.name == received.name+" "+received.year){
+          contains = true;
+        }
+      })
+      if(contains){
+        alert("Semester already included!");
+      }else{
+        this.semesters.push({
+          name: received.name+" "+received.year,
           children: [],
           totalCredits: 0,
         });
+      }
+    },
+    deleteSem(received){
+      if(this.checkInputSemester(received)){
+        return;
+      }
+      var i;
+      var contains = true;
+      for (i = this.semesters.length - 1; i >= 0; i -= 1) {
+        if (this.semesters[i].name == received.name+" "+received.year) {
+        this.semesters.splice(i, 1);
+        contains = false;
+        }
+      }
+      if(contains){
+        alert("Semester not in plan!");
+      }
+    },
+    checkInputSemester(received){
+      if(received.name == undefined || received.year == undefined){
+        alert("Please fill in both fields for semester");
+        return true;
+      }
+      return false;
     }
   }
 }

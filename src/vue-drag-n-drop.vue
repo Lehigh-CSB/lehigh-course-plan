@@ -6,15 +6,29 @@
     <div class="dd-first-group">
       <button
       v-on:click="saveSemester()"
-      > Add Semester </button> <br>
+      > Add Semester </button>
+      <button
+      v-on:click="deleteSemester()"
+      > Delete Semester </button>
+      <br>
       <select v-model="selected"
       v-bind:key="selected"
       v-on:click="selected=selected">
-      <option disabled value="">Select New Semester</option>
+      <option disabled value="">Select Season</option>
       <option>Fall</option>
       <option>Winter</option>
       <option>Summer</option>
       <option>Spring</option>
+      </select>
+      <select v-model="selectedYear"
+      v-bind:key="selectedYear"
+      v-on:click="selectedYear=selectedYear">
+      <option disabled value="">Select Year</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
       </select>
       <br>
         <button
@@ -104,7 +118,6 @@ export default {
       semesters: [],
       currentTab: 'CS',
       tabs: ['CS', 'BUS', 'MATH', 'NS'],
-      selected : 'Test',
     }
   },
 
@@ -248,7 +261,13 @@ export default {
       /*
       This saves a semester
       */
-      this.$emit("addSem",{name: this.selected});
+      this.$emit("addSem",{name: this.selected, year: this.selectedYear});
+    },
+    deleteSemester(){
+      /*
+      This deletes a semester
+      */
+      this.$emit("deleteSem",{name: this.selected, year: this.selectedYear});
     }
   }
 }
