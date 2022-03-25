@@ -5,7 +5,8 @@
       "credits": 1,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "ECO 001",
@@ -13,7 +14,8 @@
       "credits": 4,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 007",
@@ -21,7 +23,8 @@
       "credits": 4,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "MATH 021",
@@ -29,7 +32,8 @@
       "credits": 4,
       "designation": "MATH",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "PHY 010",
@@ -37,7 +41,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 017",
@@ -45,7 +50,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 109",
@@ -53,7 +59,8 @@
       "credits": 4,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 140",
@@ -61,7 +68,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 202",
@@ -69,7 +77,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 216",
@@ -77,7 +86,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 252",
@@ -85,7 +95,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 262",
@@ -93,7 +104,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 303",
@@ -101,7 +113,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 340",
@@ -109,7 +122,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSE 341",
@@ -117,7 +131,8 @@
       "credits": 3,
       "designation": "CS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "ACCT 151",
@@ -125,7 +140,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "ACCT 152",
@@ -133,7 +149,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "ECO 146", 
@@ -141,7 +158,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "FIN 125", 
@@ -149,7 +167,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "LAW 201", 
@@ -157,7 +176,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "SCM 186", 
@@ -165,7 +185,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "MGT 043", 
@@ -173,7 +194,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "MGT 301", 
@@ -181,7 +203,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "MKT 111", 
@@ -189,7 +212,8 @@
       "credits": 3,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSB 311", 
@@ -197,7 +221,8 @@
       "credits": 3,
       "designation": "CSB",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSB 312", 
@@ -205,7 +230,8 @@
       "credits": 3,
       "designation": "CSB",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CSB 313", 
@@ -213,7 +239,8 @@
       "credits": 3,
       "designation": "CSB",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "MATH 022", 
@@ -221,7 +248,8 @@
       "credits": 3,
       "designation": "MATH",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "MATH 205", 
@@ -229,7 +257,8 @@
       "credits": 3,
       "designation": "MATH",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "ECO 045", 
@@ -237,7 +266,8 @@
       "credits": 3,
       "designation": "MATH",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "BUS 003", 
@@ -245,7 +275,8 @@
       "credits": 1.5,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "BUS 203", 
@@ -253,7 +284,8 @@
       "credits": 1.5,
       "designation": "BUS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "PHY 011", 
@@ -261,7 +293,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "PHY 013", 
@@ -269,7 +302,8 @@
       "credits": 3,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "PHY 021", 
@@ -277,7 +311,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "PHY 005", 
@@ -285,7 +320,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "ASTR 105", 
@@ -293,7 +329,8 @@
       "credits": 3,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CHEM 030", 
@@ -301,7 +338,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CHEM 031", 
@@ -309,7 +347,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "CHEM 110", 
@@ -317,7 +356,8 @@
       "credits": 3,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "BIOS 041", 
@@ -325,7 +365,8 @@
       "credits": 3,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "EES 021", 
@@ -333,7 +374,8 @@
       "credits": 3,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "EES 022", 
@@ -341,7 +383,8 @@
       "credits": 1,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "EES 131", 
@@ -349,7 +392,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "EES 025", 
@@ -357,7 +401,8 @@
       "credits": 3,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "EES 152", 
@@ -365,7 +410,8 @@
       "credits": 4,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     },
     {
       "title": "EES 028", 
@@ -373,6 +419,7 @@
       "credits": 3,
       "designation": "NS",
       "completed": false,
-      "used": false
+      "used": false,
+      "grade": "None"
     }
 ]

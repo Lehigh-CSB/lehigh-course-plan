@@ -74,41 +74,49 @@ export default {
           name: 'Fall 1',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         },
         {
           name: 'Spring 1',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         },
         {
           name: 'Fall 2',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         },
         {
           name: 'Spring 2',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         },
         {
           name: 'Fall 3',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         },
         {
           name: 'Spring 3',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         },
         {
           name: 'Fall 4',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         },
         {
           name: 'Spring 4',
           children: [],
           totalCredits: 0,
+          gpa: 0.0
         }
       ],
     }
@@ -150,10 +158,53 @@ export default {
       console.log("getCredits called");
       semesters.forEach(Element => {
         Element.totalCredits = 0;
+        Element.gpa = 0.0;
+        count = 0;
         Element.children.forEach(Element1 => {
           Element.totalCredits = Element1.credits + Element.totalCredits;
+          count = count + 1;
+          if(Element1.grade == "A"){
+            Element.gpa = 4.0 + Element.gpa;
+          }
+          else if(Element1.grade == "A-"){
+            Element.gpa = 3.7 + Element.gpa;
+          }
+          else if(Element1.grade == "B+"){
+            Element.gpa = 3.3 + Element.gpa;
+          }
+          else if(Element1.grade == "B"){
+            Element.gpa = 3.0 + Element.gpa;
+          }
+          else if(Element1.grade == "B-"){
+            Element.gpa = 2.7 + Element.gpa;
+          }
+          else if(Element1.grade == "C+"){
+            Element.gpa = 2.3 + Element.gpa;
+          }
+          else if(Element1.grade == "C"){
+            Element.gpa = 2.0 + Element.gpa;
+          }
+          else if(Element1.grade == "C-"){
+            Element.gpa = 1.7 + Element.gpa;
+          }
+          else if(Element1.grade == "D+"){
+            Element.gpa = 1.3 + Element.gpa;
+          }
+          else if(Element1.grade == "D"){
+            Element.gpa = 1.0 + Element.gpa;
+          }
+          else if(Element1.grade == "D-"){
+            Element.gpa = 0.7 + Element.gpa;
+          }
+          else if(Element1.grade == "F"){
+            Element.gpa = 0.0 + Element.gpa;
+          }
+          else {
+            Element.gpa = 0.0 + Element.gpa;
+          }
           // console.log(Element.totalCredits);
         })
+        Element.gpa = Element.gpa / count;
       })
     },
 

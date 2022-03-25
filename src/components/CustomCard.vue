@@ -3,8 +3,10 @@
     <h3 class="inline_element">{{data.title}} {{data.credits}}</h3>
     <div class="inline_element" style="border-radius: 0.3rem">
       <v-select
-        placeholder="Grade"
-        :options="['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
+        v-model="data.grade"
+        @input="updateGrade"
+        placeholder="None"
+        :options="['None', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
         append-to-body
       >
       </v-select>
@@ -25,6 +27,10 @@ export default {
   methods: {
     markCompleted() {
       this.$emit('completed', this.data);
+    },
+
+    updateGrade(grade) {
+      this.data.grade = grade;
     }
   }
 }
