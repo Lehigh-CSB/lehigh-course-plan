@@ -96,41 +96,57 @@ export default {
       semesters: [
         {
           name: 'Fall 1',
+          season: 1,
+          year: 1,
           children: [],
           totalCredits: 0,
         },
         {
           name: 'Spring 1',
+          season: 3,
+          year: 1,
           children: [],
           totalCredits: 0,
         },
         {
           name: 'Fall 2',
+          season: 1,
+          year: 2,
           children: [],
           totalCredits: 0,
         },
         {
           name: 'Spring 2',
+          season: 3,
+          year: 2,
           children: [],
           totalCredits: 0,
         },
         {
           name: 'Fall 3',
+          season: 1,
+          year: 3,
           children: [],
           totalCredits: 0,
         },
         {
           name: 'Spring 3',
+          season: 3,
+          year: 3,
           children: [],
           totalCredits: 0,
         },
         {
           name: 'Fall 4',
+          season: 1,
+          year: 4,
           children: [],
           totalCredits: 0,
         },
         {
           name: 'Spring 4',
+          season: 3,
+          year: 4,
           children: [],
           totalCredits: 0,
         }
@@ -193,11 +209,29 @@ export default {
       if(contains){
         alert("Semester already included!");
       }else{
+        var newSeason;
+        switch(received.name){
+          case "Fall":
+            newSeason =1;
+            break;
+          case "Winter":
+            newSeason =2;
+            break;
+          case "Spring":
+            newSeason =3;
+            break;
+          case "Summer":
+            newSeason =4;
+            break;
+        }
         this.semesters.push({
           name: received.name+" "+received.year,
+          season: newSeason,
+          year: received.year,
           children: [],
           totalCredits: 0,
         });
+        this.semesters.sort(this.compare);
       }
     },
     deleteSem(received){
@@ -222,6 +256,21 @@ export default {
         return true;
       }
       return false;
+    },
+    compare(a,b) {
+      if(a.year < b.year){
+        return -1;
+      }
+      if(a.year > b.year){
+        return 1;
+      }
+      if(a.season < b.season){
+        return -1;
+      }
+      if(a.season > b.season){
+        return 1;
+      }
+      return 0;
     }
   }
 }
