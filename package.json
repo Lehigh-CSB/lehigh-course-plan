@@ -6,10 +6,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
-    "test": "vue-cli-service test:unit",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-drag-n-drop.esm.js",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-drag-n-drop.umd.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-drag-n-drop.min.js"
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-drag-n-drop.min.js",
+    "test": "vue-cli-service test:unit"
   },
   "main": "dist/vue-drag-n-drop.umd.js",
   "module": "dist/vue-drag-n-drop.esm.js",
@@ -20,11 +20,6 @@
   "files": [
     "dist/*"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test"
-    }
-  },
   "dependencies": {
     "firebase": "^9.6.6",
     "lodash": "^4.17.13",
@@ -32,20 +27,27 @@
     "sass-loader": "^10.1.1",
     "vue-drag-n-drop": "^1.2.2",
     "vue-router": "^3.5.3",
-    "vue-smooth-dnd": "^0.2.1"
+    "vue-select": "^3.18.2",
+    "vue-smooth-dnd": "^0.2.1",
+    "vuetify": "^2.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-unit-jest": "~4.3.0",
     "@vue/cli-service": "~4.2.0",
     "@vue/test-utils": "1.0.0-beta.31",
+    "deepmerge": "^4.2.2",
     "rollup": "^1.17.0",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-vue": "^5.0.1",
+    "sass": "~1.32",
+    "sass-loader": "^10.0.0",
     "sinon": "^9.0.1",
     "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "vue-cli-plugin-vuetify": "~2.4.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
   },
   "bugs": {
     "url": "https://github.com/smaharj1/vue-drag-and-drop-kanban/issues"
@@ -56,6 +58,11 @@
       "url": "https://github.com/smaharj1"
     }
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
   "keywords": [
     "Vue",
     "Vue.js",

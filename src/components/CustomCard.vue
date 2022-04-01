@@ -1,16 +1,37 @@
 <template>
   <div class="cc-card">
-    <h3>{{data.title}} {{data.credits}}</h3>
+    <h3 class="inline_element">{{data.title}} {{data.credits}}</h3>
+    <div class="inline_element" style="border-radius: 0.3rem">
+      <v-select
+        v-model="data.grade"
+        @input="updateGrade"
+        placeholder="None"
+        :options="['None', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
+        append-to-body
+      >
+      </v-select>
+    </div>
   </div>
 </template>
 
 <script>
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+
 export default {
   name: 'CustomCard',
   props: ['data'],
+  components: {
+    vSelect
+  },
   methods: {
     markCompleted() {
       this.$emit('completed', this.data);
+    },
+
+    updateGrade(grade) {
+      this.data.grade = grade;
+      this.$emit('grade-updated', this.data);
     }
   }
 }
@@ -18,7 +39,18 @@ export default {
 </script>
 
 <style>
+
+.select {
+    min-height: 10px;
+}
+
+.inline_element {
+  margin: 2px;
+  flex-basis: 100px;
+}
+
 .cc-card {
+  display: flex;
   padding: 10px;
   text-align: left;
   border: 1px solid #dbdbdb;
