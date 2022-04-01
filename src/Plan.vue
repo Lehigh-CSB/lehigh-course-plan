@@ -24,6 +24,7 @@
         <custom-card
           :data="cardData"
           @completed="completedMarked"
+          @grade-updated="gradeUpdated"
         />
       </template>
     </drag-drop>
@@ -74,49 +75,49 @@ export default {
           name: 'Fall 1',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         },
         {
           name: 'Spring 1',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         },
         {
           name: 'Fall 2',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         },
         {
           name: 'Spring 2',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         },
         {
           name: 'Fall 3',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         },
         {
           name: 'Spring 3',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         },
         {
           name: 'Fall 4',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         },
         {
           name: 'Spring 4',
           children: [],
           totalCredits: 0,
-          gpa: 0.0
+          gpa: 0
         }
       ],
     }
@@ -158,8 +159,8 @@ export default {
       console.log("getCredits called");
       semesters.forEach(Element => {
         Element.totalCredits = 0;
-        Element.gpa = 0.0;
-        count = 0;
+        Element.gpa = 0;
+        let count = 0;
         Element.children.forEach(Element1 => {
           Element.totalCredits = Element1.credits + Element.totalCredits;
           count = count + 1;
@@ -229,6 +230,11 @@ export default {
         data.completed = true;
       }
       alert(data.title);
+    },
+
+    gradeUpdated(data){
+      console.log(data);
+      this.getCredits(this.semesters);
     },
 
     originalBucketDropEvent(result) {

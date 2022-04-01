@@ -31,6 +31,7 @@ export default {
 
     updateGrade(grade) {
       this.data.grade = grade;
+      this.$emit('grade-updated', this.data);
     }
   }
 }
