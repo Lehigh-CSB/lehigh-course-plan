@@ -6,8 +6,32 @@
     </h2>
     <div class="dd-first-group">
       <button
-      v-on:click="this.semesters.addSemester(this.semesters,'test')"
-      > Add Semester </button> <br>
+      v-on:click="saveSemester()"
+      > Add Semester </button>
+      <button
+      v-on:click="deleteSemester()"
+      > Delete Semester </button>
+      <br>
+      <select v-model="selected"
+      v-bind:key="selected"
+      v-on:click="selected=selected">
+      <option disabled value="">Select Season</option>
+      <option>Fall</option>
+      <option>Winter</option>
+      <option>Spring</option>
+      <option>Summer</option>
+      </select>
+      <select v-model="selectedYear"
+      v-bind:key="selectedYear"
+      v-on:click="selectedYear=selectedYear">
+      <option disabled value="">Select Year</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      </select>
+      <br>
         <button
           v-for="tab in tabs"
           v-bind:key="tab"
@@ -38,9 +62,120 @@
         </Container>
     </div>
     <hr>
+    <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
+
     <div class="dd-result-group">
       <div 
-        v-for="(item,ind) in semesters"
+        v-for="(item,ind) in semesters" 
+        v-if="item.year == 1"
+        v-bind:key="ind"
+        class="dd-drop-container">
+        {{item.name}}
+        <Container 
+          group-name="col"
+          @drop="(e) => onCardDrop(item.name, e)"
+          :get-child-payload="getCardPayload(item.name)"
+          drag-class="dd-card-ghost"
+          drop-class="dd-card-ghost-drop"
+        >
+          <Draggable v-for="(card, cid) in item.children" :key="cid">
+            <slot name="dd-card" v-bind:cardData="card">
+              <div class="card">
+                <p>
+                  {{card}}
+                </p>
+              </div>
+            </slot>
+          </Draggable>
+        </Container>
+        <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
+        <h3 style="float:right;">Total GPA: {{item.gpa}}</h3>
+      </div>
+    <br>
+    <div 
+        v-for="(item,ind) in semesters" 
+        v-if="item.year == 2"
+        v-bind:key="ind"
+        class="dd-drop-container">
+        {{item.name}}
+        <Container 
+          group-name="col"
+          @drop="(e) => onCardDrop(item.name, e)"
+          :get-child-payload="getCardPayload(item.name)"
+          drag-class="dd-card-ghost"
+          drop-class="dd-card-ghost-drop"
+        >
+          <Draggable v-for="(card, cid) in item.children" :key="cid">
+            <slot name="dd-card" v-bind:cardData="card">
+              <div class="card">
+                <p>
+                  {{card}}
+                </p>
+              </div>
+            </slot>
+          </Draggable>
+        </Container>
+        <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
+        <h3 style="float:right;">Total GPA: {{item.gpa}}</h3>
+      </div>
+      <br>
+    <div 
+        v-for="(item,ind) in semesters" 
+        v-if="item.year == 3"
+        v-bind:key="ind"
+        class="dd-drop-container">
+        {{item.name}}
+        <Container 
+          group-name="col"
+          @drop="(e) => onCardDrop(item.name, e)"
+          :get-child-payload="getCardPayload(item.name)"
+          drag-class="dd-card-ghost"
+          drop-class="dd-card-ghost-drop"
+        >
+          <Draggable v-for="(card, cid) in item.children" :key="cid">
+            <slot name="dd-card" v-bind:cardData="card">
+              <div class="card">
+                <p>
+                  {{card}}
+                </p>
+              </div>
+            </slot>
+          </Draggable>
+        </Container>
+        <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
+        <h3 style="float:right;">Total GPA: {{item.gpa}}</h3>
+      </div>
+      <br>
+    <div 
+        v-for="(item,ind) in semesters" 
+        v-if="item.year == 4"
+        v-bind:key="ind"
+        class="dd-drop-container">
+        {{item.name}}
+        <Container 
+          group-name="col"
+          @drop="(e) => onCardDrop(item.name, e)"
+          :get-child-payload="getCardPayload(item.name)"
+          drag-class="dd-card-ghost"
+          drop-class="dd-card-ghost-drop"
+        >
+          <Draggable v-for="(card, cid) in item.children" :key="cid">
+            <slot name="dd-card" v-bind:cardData="card">
+              <div class="card">
+                <p>
+                  {{card}}
+                </p>
+              </div>
+            </slot>
+          </Draggable>
+        </Container>
+        <h3 style="float:right;">Total Credits: {{item.totalCredits}}</h3>
+        <h3 style="float:right;">Total GPA: {{item.gpa}}</h3>
+      </div>
+      <br>
+    <div 
+        v-for="(item,ind) in semesters" 
+        v-if="item.year == 5"
         v-bind:key="ind"
         class="dd-drop-container">
         {{item.name}}
@@ -66,7 +201,6 @@
       </div>
     </div>
     <hr>
-
     <div class="dd-drop-actions" v-if="enableSave || enableCancel">
       <button class="button dd-save" v-if="enableSave" @click="saveClicked()">
         Save
@@ -75,7 +209,6 @@
         Cancel
       </button>
     </div>
-
   </div>
 </template>
 
@@ -233,6 +366,18 @@ export default {
        * @event cancel Handles the cancellation.
       */
       this.$emit("cancel");
+    },
+    saveSemester(){
+      /*
+      This saves a semester
+      */
+      this.$emit("addSem",{name: this.selected, year: this.selectedYear});
+    },
+    deleteSemester(){
+      /*
+      This deletes a semester
+      */
+      this.$emit("deleteSem",{name: this.selected, year: this.selectedYear});
     }
   }
 }

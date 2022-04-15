@@ -19,6 +19,8 @@
       @dropInDestinationBucket="destinationBucketDropEvent"
       @save="save"
       @cancel="cancel"
+      @addSem="addSem"
+      @deleteSem="deleteSem"
     >
       <template #dd-card="{ cardData }">
         <custom-card
@@ -73,48 +75,64 @@ export default {
       semesters: [
         {
           name: 'Fall 1',
+          season: 1,
+          year: 1,
           children: [],
           totalCredits: 0,
           gpa: 0
         },
         {
           name: 'Spring 1',
+          season: 3,
+          year: 1,
           children: [],
           totalCredits: 0,
           gpa: 0
         },
         {
           name: 'Fall 2',
+          season: 1,
+          year: 2,
           children: [],
           totalCredits: 0,
           gpa: 0
         },
         {
           name: 'Spring 2',
+          season: 3,
+          year: 2,
           children: [],
           totalCredits: 0,
           gpa: 0
         },
         {
           name: 'Fall 3',
+          season: 1,
+          year: 3,
           children: [],
           totalCredits: 0,
           gpa: 0
         },
         {
           name: 'Spring 3',
+          season: 3,
+          year: 3,
           children: [],
           totalCredits: 0,
           gpa: 0
         },
         {
           name: 'Fall 4',
+          season: 1,
+          year: 4,
           children: [],
           totalCredits: 0,
           gpa: 0
         },
         {
           name: 'Spring 4',
+          season: 3,
+          year: 4,
           children: [],
           totalCredits: 0,
           gpa: 0
@@ -209,10 +227,6 @@ export default {
       })
     },
 
-    addSemester(semesters,nameSem){
-      semesters
-    },
-
     save(received){
         const auth = getAuth();
         const user = auth.currentUser;
@@ -243,11 +257,88 @@ export default {
 
     destinationBucketDropEvent(columnName, result) {
       this.getCredits(this.semesters);
-      this.addSemester(this.semesters, 'test');
     },
 
     cancel() {
       console.log("Cancel hit");
+    },
+
+    addSem(received){
+      if(this.checkInputSemester(received)){
+        return;
+      }
+      this.semesters.sort()
+      var contains = false;
+      this.semesters.forEach(Element =>{
+        if(Element.name == received.name+" "+received.year){
+          contains = true;
+        }
+      })
+      if(contains){
+        alert("Semester already included!");
+      }else{
+        var newSeason;
+        switch(received.name){
+          case "Fall":
+            newSeason =1;
+            break;
+          case "Winter":
+            newSeason =2;
+            break;
+          case "Spring":
+            newSeason =3;
+            break;
+          case "Summer":
+            newSeason =4;
+            break;
+        }
+        this.semesters.push({
+          name: received.name+" "+received.year,
+          season: newSeason,
+          year: received.year,
+          children: [],
+          totalCredits: 0,
+        });
+        this.semesters.sort(this.compare);
+      }
+    },
+    deleteSem(received){
+      if(this.checkInputSemester(received)){
+        return;
+      }
+      var i;
+      var contains = true;
+      for (i = this.semesters.length - 1; i >= 0; i -= 1) {
+        if (this.semesters[i].name == received.name+" "+received.year) {
+        this.semesters.splice(i, 1);
+        contains = false;
+        }
+      }
+      if(contains){
+        alert("Semester not in plan!");
+      }
+    },
+    checkInputSemester(received){
+      if(received.name == undefined || received.year == undefined){
+        alert("Please fill in both fields for semester");
+        return true;
+      }
+      return false;
+    },
+    compare(a,b) {
+      if(a.year < b.year){
+        return -1;
+      }
+      if(a.year > b.year){
+        return 1;
+      }
+      if(a.season < b.season){
+        return -1;
+      }
+      if(a.season > b.season){
+        return 1;
+      }
+      return 0;
     }
   }
 }
