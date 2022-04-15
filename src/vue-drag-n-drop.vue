@@ -12,25 +12,23 @@
       v-on:click="deleteSemester()"
       > Delete Semester </button>
       <br>
-      <select v-model="selected"
-      v-bind:key="selected"
-      v-on:click="selected=selected">
-      <option disabled value="">Select Season</option>
-      <option>Fall</option>
-      <option>Winter</option>
-      <option>Spring</option>
-      <option>Summer</option>
-      </select>
-      <select v-model="selectedYear"
-      v-bind:key="selectedYear"
-      v-on:click="selectedYear=selectedYear">
-      <option disabled value="">Select Year</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      </select>
+      
+      <v-select 
+        v-model="currentSeasonSelect"
+        @input="updateSeason"
+        placeholder="Select Season"
+        :options="['Fall', 'Winter', 'Spring', 'Summer']"
+      >
+      </v-select>
+      
+      <v-select
+        v-model="currentYearSelect"
+        @input="updateYear"
+        placeholder="Select Year"
+        :options="['1', '2', '3', '4']"
+      >
+      </v-select>
+      
       <br>
         <button
           v-for="tab in tabs"
@@ -40,6 +38,7 @@
           >
           {{tab}}
         </button> 
+        
         <Container 
           @drop="onDrop" 
           group-name="col"
@@ -219,10 +218,12 @@ import RequiredProps from './drag-n-drop-props.js';
 import Tab from './components/Tab.vue';
 import {getAuth} from 'firebase/auth';
 import { getDatabase, ref, set, child, get } from "firebase/database";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 
 export default {
   name: "VueDragNDrop",
-  components: { Container, Draggable, Tab},
+  components: { Container, Draggable, Tab, vSelect},
   props: RequiredProps,
 
   data: function () {  
@@ -231,6 +232,8 @@ export default {
       semesters: [],
       currentTab: 'CS',
       tabs: ['CS', 'BUS', 'MATH', 'NS', 'CSB'],
+      currentSeasonSelect: 'Select Season',
+      currentYearSelect: 'Select Year',
     }
   },
 
@@ -361,6 +364,14 @@ export default {
       });
     },
 
+    updateSeason(season){
+      this.currentSeasonSelect = season;
+    },
+
+    updateYear(year){
+      this.currentYearSelect = year;
+    },
+
     cancelClicked() {
       /** 
        * @event cancel Handles the cancellation.
@@ -371,13 +382,13 @@ export default {
       /*
       This saves a semester
       */
-      this.$emit("addSem",{name: this.selected, year: this.selectedYear});
+      this.$emit('addSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
     },
     deleteSemester(){
       /*
       This deletes a semester
       */
-      this.$emit("deleteSem",{name: this.selected, year: this.selectedYear});
+      this.$emit('deleteSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
     }
   }
 }
