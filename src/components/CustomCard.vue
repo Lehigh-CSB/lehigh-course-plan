@@ -40,13 +40,8 @@ export default {
 
 <style>
 
-.select {
-    min-height: 10px;
-}
-
 .inline_element {
-  margin: 2px;
-  flex-basis: 100px;
+  flex-basis: 100%;
 }
 
 .cc-card {
@@ -55,9 +50,8 @@ export default {
   text-align: left;
   border: 1px solid #dbdbdb;
   border-radius: 5px;
-  margin: 5px;
+  margin: 2px;
   background-color: white;
-  min-width: 200px;
   font-size: 0.8em;
 }
 

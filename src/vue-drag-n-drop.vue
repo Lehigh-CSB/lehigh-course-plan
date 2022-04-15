@@ -4,13 +4,17 @@
     <h2 class="dd-title">
       {{originalTitle}}
     </h2>
+    
     <div class="dd-first-group">
       <button
-      v-on:click="saveSemester()"
-      > Add Semester </button>
+        class="button add-sem"
+        v-on:click="saveSemester()"> Add Semester 
+      </button>
+      
       <button
-      v-on:click="deleteSemester()"
-      > Delete Semester </button>
+        class="button del-sem"
+        v-on:click="deleteSemester()"> Delete Semester
+      </button>
       <br>
       
       <v-select 
@@ -399,9 +403,9 @@ export default {
 .dd-drop-container{
   display: inline-block;
   vertical-align: top;
-  width: 15%;
+  width: 17%;
   padding: 1%;
-  margin: 2px;
+  margin: 10px;
   min-height: 5em;
   white-space: normal;
   background-color: #f3f3f3;
@@ -463,6 +467,27 @@ export default {
 .dd-cancel {
   border: none;
   cursor: pointer;
+}
+
+
+
+.add-sem {
+  cursor: pointer;
+  background: #5cdb95 !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.delete-sem {
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .tab-button {
