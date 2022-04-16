@@ -30,6 +30,7 @@
                         const user = result.user;
                         // console.log(user);
                         this.$router.replace('/');
+                        this.updateSemesterLayout();
                     })
                     .catch((error) => {
                         // Handle Errors here.
@@ -43,6 +44,17 @@
                     });
             }
         },
+        updateSemesterLayout(){
+      if (this.inPlace) {
+        this.items = this.originalData;
+        this.semesters = this.dropzones;
+      }
+      else {
+        console.log("does it ever get called?");
+        this.items = _.cloneDeep(this.originalData);
+        this.semesters = _.cloneDeep(this.dropzones);
+      }
+    },
     };
 </script>
 

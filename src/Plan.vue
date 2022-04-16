@@ -1,9 +1,9 @@
 <template>
   <div id="plan">
+    <div class="topRow">
     <header>Lehigh Course Plan Manager</header>
-<!--
     <button class="actionBtn" @click="logout">Logout</button>
-    -->
+    </div>
     <div class="upDateSem">
       <button
         class="button add-sem"
@@ -100,6 +100,8 @@ export default {
   data() {
     return{
       courses,
+      currentSeasonSelect: 'Select Season',
+      currentYearSelect: 'Select Year',
       semesters: [
         {
           name: 'Fall 1',
@@ -411,8 +413,13 @@ h2 {
   margin: 20px;
   padding: 10px;
   font-size: 16px;
+  background: #1a73e8;
+  color: white;
 }
-
+.topRow {
+  display: flex;
+  justify-content: space-between;
+}
 .upDateSem {
 }
 </style>
