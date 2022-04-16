@@ -1,9 +1,8 @@
 <template>
   <div class="vue-drag-n-drop">
+<!--
     <button class="actionBtn "@click="updateSemesterLayout">Refresh</button>
-    <h2 class="dd-title">
-      {{originalTitle}}
-    </h2>
+-->
       <div class="dd-first-group">
         <button
           v-for="tab in tabs"

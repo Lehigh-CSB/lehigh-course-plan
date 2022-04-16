@@ -1,11 +1,10 @@
 <template>
   <div id="plan">
     <header>Lehigh Course Plan Manager</header>
-    <h2>Course management and planning allows to make the most out of your available credits at Lehigh!</h2>
-    <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
-
+<!--
     <button class="actionBtn" @click="logout">Logout</button>
-    <div class="dd-first-group">
+    -->
+    <div class="upDateSem">
       <button
         class="button add-sem"
         v-on:click="saveSemester()"> Add Semester 
@@ -67,6 +66,8 @@ import Auth from './Auth.vue';
 import {getAuth} from 'firebase/auth';
 import { getDatabase, ref, set, child, get } from "firebase/database";
 import courses from './courses.json';
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 
 export default {
   name: 'app',
@@ -74,7 +75,8 @@ export default {
     DragDrop,
     CustomCard,
     Auth,
-    courseData: courses
+    courseData: courses,
+    vSelect
   },
 
   beforeCreate(){
@@ -394,15 +396,16 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   /* margin-top: 60px; */
 }
 header {
   font-size: 30px;
+  text-align: left;
 }
 h2 {
   font-size: 16px;
+  text-align: left;
 }
 .actionBtn {
   margin: 20px;
@@ -410,15 +413,6 @@ h2 {
   font-size: 16px;
 }
 
-.dd-first-group {
-  overflow-y: auto;
-  float: right;
-  margin: 20px;
-  max-height: 100%;
-}
-
-.dd-first-group > .smooth-dnd-container {
-  min-height: 100px;
-  white-space: unset;
+.upDateSem {
 }
 </style>
