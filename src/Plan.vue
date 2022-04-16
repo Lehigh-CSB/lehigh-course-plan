@@ -223,7 +223,7 @@ export default {
           }
           // console.log(Element.totalCredits);
         })
-        Element.gpa = Element.gpa / count;
+        Element.gpa = (Element.gpa / count).toFixed(2);
       })
     },
 

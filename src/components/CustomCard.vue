@@ -5,8 +5,8 @@
       <v-select
         v-model="data.grade"
         @input="updateGrade"
-        placeholder="None"
-        :options="['None', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
+        placeholder="NA"
+        :options="['NA', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']"
         append-to-body
       >
       </v-select>

@@ -6,7 +6,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "ECO 001",
@@ -15,7 +15,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 007",
@@ -24,7 +24,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "MATH 021",
@@ -33,7 +33,7 @@
       "designation": "MATH",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "PHY 010",
@@ -42,7 +42,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 017",
@@ -51,7 +51,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 109",
@@ -60,7 +60,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 140",
@@ -69,7 +69,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 202",
@@ -78,7 +78,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 216",
@@ -87,7 +87,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 252",
@@ -96,7 +96,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 262",
@@ -105,7 +105,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 303",
@@ -114,7 +114,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 340",
@@ -123,7 +123,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSE 341",
@@ -132,7 +132,7 @@
       "designation": "CS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "ACCT 151",
@@ -141,7 +141,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "ACCT 152",
@@ -150,7 +150,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "ECO 146", 
@@ -159,7 +159,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "FIN 125", 
@@ -168,7 +168,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "LAW 201", 
@@ -177,7 +177,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "SCM 186", 
@@ -186,7 +186,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "MGT 043", 
@@ -195,7 +195,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "MGT 301", 
@@ -204,7 +204,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "MKT 111", 
@@ -213,7 +213,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSB 311", 
@@ -222,7 +222,7 @@
       "designation": "CSB",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSB 312", 
@@ -231,7 +231,7 @@
       "designation": "CSB",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CSB 313", 
@@ -240,7 +240,7 @@
       "designation": "CSB",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "MATH 022", 
@@ -249,7 +249,7 @@
       "designation": "MATH",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "MATH 205", 
@@ -258,7 +258,7 @@
       "designation": "MATH",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "ECO 045", 
@@ -267,7 +267,7 @@
       "designation": "MATH",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "BUS 003", 
@@ -276,7 +276,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "BUS 203", 
@@ -285,7 +285,7 @@
       "designation": "BUS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "PHY 011", 
@@ -294,7 +294,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "PHY 013", 
@@ -303,7 +303,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "PHY 021", 
@@ -312,7 +312,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "PHY 005", 
@@ -321,7 +321,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "ASTR 105", 
@@ -330,7 +330,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CHEM 030", 
@@ -339,7 +339,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CHEM 031", 
@@ -348,7 +348,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "CHEM 110", 
@@ -357,7 +357,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "BIOS 041", 
@@ -366,7 +366,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "EES 021", 
@@ -375,7 +375,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "EES 022", 
@@ -384,7 +384,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "EES 131", 
@@ -393,7 +393,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "EES 025", 
@@ -402,7 +402,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "EES 152", 
@@ -411,7 +411,7 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     },
     {
       "title": "EES 028", 
@@ -420,6 +420,6 @@
       "designation": "NS",
       "completed": false,
       "used": false,
-      "grade": "None"
+      "grade": "NA"
     }
 ]
