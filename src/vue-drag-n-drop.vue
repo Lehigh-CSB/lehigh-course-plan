@@ -4,36 +4,7 @@
     <h2 class="dd-title">
       {{originalTitle}}
     </h2>
-    
-    <div class="dd-first-group">
-      <button
-        class="button add-sem"
-        v-on:click="saveSemester()"> Add Semester 
-      </button>
-      
-      <button
-        class="button del-sem"
-        v-on:click="deleteSemester()"> Delete Semester
-      </button>
-      <br>
-      
-      <v-select 
-        v-model="currentSeasonSelect"
-        @input="updateSeason"
-        placeholder="Select Season"
-        :options="['Fall', 'Winter', 'Spring', 'Summer']"
-      >
-      </v-select>
-      
-      <v-select
-        v-model="currentYearSelect"
-        @input="updateYear"
-        placeholder="Select Year"
-        :options="['1', '2', '3', '4']"
-      >
-      </v-select>
-      
-      <br>
+      <div class="dd-first-group">
         <button
           v-for="tab in tabs"
           v-bind:key="tab"
@@ -235,7 +206,7 @@ export default {
       items:[],
       semesters: [],
       currentTab: 'CS',
-      tabs: ['CS', 'BUS', 'MATH', 'NS', 'CSB'],
+      tabs: ['CS', 'BUS', 'MATH', 'NS', 'CSB', 'MISC'],
       currentSeasonSelect: 'Select Season',
       currentYearSelect: 'Select Year',
     }
@@ -367,33 +338,13 @@ export default {
         originalBucket: this.items
       });
     },
-
-    updateSeason(season){
-      this.currentSeasonSelect = season;
-    },
-
-    updateYear(year){
-      this.currentYearSelect = year;
-    },
-
+    
     cancelClicked() {
       /** 
        * @event cancel Handles the cancellation.
       */
       this.$emit("cancel");
     },
-    saveSemester(){
-      /*
-      This saves a semester
-      */
-      this.$emit('addSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
-    },
-    deleteSemester(){
-      /*
-      This deletes a semester
-      */
-      this.$emit('deleteSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
-    }
   }
 }
 </script>

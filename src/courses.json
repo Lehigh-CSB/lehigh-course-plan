@@ -270,6 +270,15 @@
       "grade": "NA"
     },
     {
+      "title": "MATH 231", 
+      "description": "Probability and Statistics",
+      "credits": 3,
+      "designation": "MATH",
+      "completed": false,
+      "used": false,
+      "grade": "NA"
+    },
+    {
       "title": "BUS 003", 
       "description": "Business Communication I",
       "credits": 1.5,
@@ -318,6 +327,15 @@
       "title": "PHY 005", 
       "description": "Concepts in Physics",
       "credits": 4,
+      "designation": "NS",
+      "completed": false,
+      "used": false,
+      "grade": "NA"
+    },
+    {
+      "title": "ASTR 007", 
+      "description": "Introduction to Astronomy",
+      "credits": 3,
       "designation": "NS",
       "completed": false,
       "used": false,
@@ -418,6 +436,15 @@
       "description": "Conservation and Biodiversity",
       "credits": 3,
       "designation": "NS",
+      "completed": false,
+      "used": false,
+      "grade": "NA"
+    },
+    {
+      "title": "ENGL 001", 
+      "description": "Critical Reading and Composition",
+      "credits": 3,
+      "designation": "MISC",
       "completed": false,
       "used": false,
       "grade": "NA"

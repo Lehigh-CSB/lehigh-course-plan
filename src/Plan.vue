@@ -5,7 +5,33 @@
     <h2>Remember that course plans are fluid and subject to change, you should update your plan as your academic career evolves</h2>
 
     <button class="actionBtn" @click="logout">Logout</button>
-    <button class="actionBtn "@click="getUserInfo">Get User Info</button>
+    <div class="dd-first-group">
+      <button
+        class="button add-sem"
+        v-on:click="saveSemester()"> Add Semester 
+      </button>
+      
+      <button
+        class="button del-sem"
+        v-on:click="deleteSemester()"> Delete Semester
+      </button>
+      <br>
+      <v-select 
+        v-model="currentSeasonSelect"
+        @input="updateSeason"
+        placeholder="Select Season"
+        :options="['Fall', 'Winter', 'Spring', 'Summer']"
+      >
+      </v-select>
+      
+      <v-select
+        v-model="currentYearSelect"
+        @input="updateYear"
+        placeholder="Select Year"
+        :options="['1', '2', '3', '4']"
+      >
+      </v-select>
+      </div>
     
     <drag-drop
       :dropzones="semesters"
@@ -339,6 +365,25 @@ export default {
         return 1;
       }
       return 0;
+    },
+    updateSeason(season){
+      this.currentSeasonSelect = season;
+    },
+
+    updateYear(year){
+      this.currentYearSelect = year;
+    },
+    saveSemester(){
+      /*
+      This saves a semester
+      */
+      this.$emit('addSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
+    },
+    deleteSemester(){
+      /*
+      This deletes a semester
+      */
+      this.$emit('deleteSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
     }
   }
 }
@@ -363,5 +408,17 @@ h2 {
   margin: 20px;
   padding: 10px;
   font-size: 16px;
+}
+
+.dd-first-group {
+  overflow-y: auto;
+  float: right;
+  margin: 20px;
+  max-height: 100%;
+}
+
+.dd-first-group > .smooth-dnd-container {
+  min-height: 100px;
+  white-space: unset;
 }
 </style>
