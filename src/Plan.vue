@@ -4,6 +4,18 @@
     <header>Lehigh Course Plan Manager</header>
     <button class="actionBtn" @click="logout">Logout</button>
     </div>
+    <div class="topRow">
+    <div class="addClass">
+      <button
+        class="button add-class"
+        v-on:click="saveSemester()"> Add Class 
+      </button>
+      <br>
+      <label for="courseNum">Course Name:</label>
+      <input type="text" id="courseNum" name="courseNum"><br>
+      <label for="courseCredits">Course Credits:</label>
+      <input type="text" id="courseCredit" name="courseCredits"><br><br>
+    </div>
     <div class="upDateSem">
       <button
         class="button add-sem"
@@ -30,6 +42,7 @@
         :options="['1', '2', '3', '4']"
       >
       </v-select>
+      </div>
       </div>
     
     <drag-drop
@@ -292,8 +305,23 @@ export default {
     cancel() {
       console.log("Cancel hit");
     },
-
+    saveSemester(){
+      /*
+      This saves a semester
+      */
+      //this.$emit('addSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
+      this.addSem({name: this.currentSeasonSelect, year: this.currentYearSelect});
+    },
+    deleteSemester(){
+      /*
+      This deletes a semester
+      */
+      //this.$emit('deleteSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
+      console.log("test2")
+      this.deleteSemester({name: this.currentSeasonSelect, year: this.currentYearSelect});
+    },
     addSem(received){
+      console.log("test1")
       if(this.checkInputSemester(received)){
         return;
       }
@@ -376,18 +404,6 @@ export default {
 
     updateYear(year){
       this.currentYearSelect = year;
-    },
-    saveSemester(){
-      /*
-      This saves a semester
-      */
-      this.$emit('addSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
-    },
-    deleteSemester(){
-      /*
-      This deletes a semester
-      */
-      this.$emit('deleteSem', {name: this.currentSeasonSelect, year: this.currentYearSelect});
     }
   }
 }
@@ -421,5 +437,9 @@ h2 {
   justify-content: space-between;
 }
 .upDateSem {
+  width: 30%;
+}
+.addClass {
+  width: 30%;
 }
 </style>

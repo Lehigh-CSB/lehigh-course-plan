@@ -90,6 +90,15 @@
       "grade": "NA"
     },
     {
+      "title": "CSE 241",
+      "description": "Database Systems and Applications ",
+      "credits": 3,
+      "designation": "CS",
+      "completed": false,
+      "used": false,
+      "grade": "NA"
+    },
+    {
       "title": "CSE 252",
       "description": "Computers, Society, and the Internet",
       "credits": 3,
